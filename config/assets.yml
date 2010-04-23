@@ -1,0 +1,12 @@
+javascript_compressor: yui
+
+javascripts:
+  base:
+    - public/javascripts/vendor/jquery-1.4.2.js
+    - public/javascripts/vendor/jquery.rails.js
+    - public/javascripts/vendor/css_browser_selector.js
+  html5_shiv:
+    - public/javascripts/vendor/html5.js
+stylesheets:
+  base:
+    - public/stylesheets/eoraptor.css
