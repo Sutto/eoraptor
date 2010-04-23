@@ -38,7 +38,7 @@ gem "jammit"
 
 gem "exception_notifier", :require => nil
 gem "stringex"
-gem "pseudocephalopod"
+gem "pseudocephalopod", ">= 0.2.1"
 gem "sitemap_generator"
 
 
