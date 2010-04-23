@@ -1,5 +1,6 @@
 en:
   page:
     title:
-      pages:
-        index: "Something"
+      posts:
+        index: "Recently on Eoraptor"
+        show:  "{{post_title}}"

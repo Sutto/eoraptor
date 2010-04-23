@@ -11,6 +11,7 @@ git "git://github.com/railsjedi/jammit.git"
 
 # Start gems
 gem 'rails', '3.0.0.beta3'
+gem "rails3-generators"
 
 gem "haml"
 gem "forgery", ">= 0.3.4"
@@ -40,6 +41,8 @@ gem "exception_notifier", :require => nil
 gem "stringex"
 gem "pseudocephalopod", ">= 0.2.1"
 gem "sitemap_generator"
+
+gem "annotate"
 
 
 gem "mysql", :group => :production

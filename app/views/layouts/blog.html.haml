@@ -1,3 +1,21 @@
 !!! 5
 %html{:lang => "en", :dir => "ltr"}
   %head
+    %title== #{page_title} - Eoraptor
+    /[if lte IE 9]
+      = include_javascripts :html5_shiv
+    = include_stylesheets(:base, :media => 'screen, projection')
+    = include_javascripts :base
+    = csrf_meta_tag
+    = yield :extra_head
+    
+    %body
+      = flash_messages :alert, :notice
+      #container
+        %header= render :partial => 'shared/header'
+
+        %section#content= yield
+
+        %footer= render :partial => 'shared/footer'
+        = yield :page_bottom
+      = google_analytics

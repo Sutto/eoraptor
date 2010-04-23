@@ -22,4 +22,20 @@ module ApplicationHelper
     end
   end
   
+  def menu_link(*args, &blk)
+    content_tag(:li, link_to(*args, &blk), :class => 'menu-item')
+  end
+  alias ml menu_link
+  
+  def google_analytics
+    if Settings.google_analytics.identifier?
+      inner = javascript_include_tag("#{request.ssl? ? "https://ssl" : "http://www"}.google-analytics.com/ga.js")
+      inner << javascript_tag(google_analytics_snippet_js(Settings.google_analytics.identifier))
+    end
+  end
+  
+  def google_analytics_snippet_js(identifier)
+    "try { var pageTracker = _gat._getTracker(#{identifier.to_json}); pageTracker._trackPageview(); } catch(e) {}"
+  end
+  
 end
