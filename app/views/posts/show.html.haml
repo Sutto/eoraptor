@@ -1,0 +1,4 @@
+%h1#post-title= @post.title
+= render :partial => 'post_metadata', :object => @post
+%hr.post-spacer
+%section.content#post-content~ @post.content_as_html

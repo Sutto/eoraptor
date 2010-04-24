@@ -1,7 +1,4 @@
-%nav
-  %ul
-    = ml "Home", :root
-    = ml "About", '/about'
+%nav= render :partial => 'shared/menu'
     
 %p#copyright-statement
   == This site &copy; Darcy R. Laycock, #{copyright 2010}. All rights reserved.

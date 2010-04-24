@@ -1,0 +1,93 @@
+$eoraptor-spacer-border: #666 !default
+
+#content
+  #inner-content
+    background-color: #393939
+    font-size: 1.1em
+    color: #EEE
+    margin: 1em 0 0
+    padding: 1em 1.5em
+    +border-radius(0.5em)
+    +box-shadow(#111, 0, 0, 0.25em)
+  
+    h1, h2, h3, h4, h5, h6
+      +header-font-stack
+      
+    h2.post-title
+      color: white
+      margin: 0.5em 0 0.25em
+      a
+        +link-colors(#FFF, #EDEDED)
+    
+    h1
+      margin: 0 0 0.5em 0
+      padding: 0 0 0.25em
+      border-bottom: 1px solid $eoraptor-spacer-border
+    
+    h1#post-title
+      margin-bottom: 0.25em
+    
+    hr.post-spacer
+      margin: 0.5em 0
+      background-color: $eoraptor-spacer-border
+      border-color: $eoraptor-spacer-border
+      color: $eoraptor-spacer-border
+      
+    p.post-metadata
+      font-size: 0.9em
+      text-align: center
+      padding: 0
+      margin: 0 0 0.5em
+      color: #888
+      
+    .pagination
+      text-align: center
+      color: #CCC
+      font-weight: bold
+      font-size: 0.9em
+      margin: 1em 0 0
+      a, span
+        margin: 0 1em
+      span
+        color: #666
+      a
+        +link-colors(#FFF)
+      
+    // Styles that apply to editable content
+    section.content
+      a
+        +link-colors(#A8BCD2, #D85561)
+    
+      p, li, ol
+        font-size: 1.1em
+        line-height: 1.8em
+  
+      // Reset extra sized.
+      li p, ol p
+        font-size: 0.9em
+    
+      p
+        color: #EEE
+        margin: 1em 0
+        
+      code, pre
+        white-space: pre
+        
+      h1, h2, h3, h4, h5, h6
+        font-weight: bold
+        margin: 0.5em 0
+      
+      a.view-more
+        font-size: 0.8em
+        font-weight: bold
+        color: #999
+        padding-left: 0.25em
+        +inline-block
+        
+      .image_holder
+        text-align: center
+        margin: 2em 0
+        img
+          border: 0.2em solid #666
+          background: #FFF
+          +box-shadow(#000, 0, 0, 0.5em)

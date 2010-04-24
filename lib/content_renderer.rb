@@ -45,6 +45,8 @@ class ContentRenderer
     renderers.keys.include? name.to_s
   end
   
+  attr_reader :object, :source_field
+  
   def initialize(object, source_field)
     @object       = object
     @source_field = source_field
@@ -54,8 +56,8 @@ class ContentRenderer
     @object.send source_field
   end
   
-  def renderered_content=(value)
-    @object.send :"#{source_field}=", value
+  def rendered_content=(value)
+    @object.send :"rendered_#{source_field}=", value
   end
   
   def to_html
@@ -64,19 +66,22 @@ class ContentRenderer
   end
   
   def render
-    self.renderered_content = self.to_html
+    self.rendered_content = self.to_html
   end
   
   add_renderer :textile do |raw|
-    RedCloth.new(raw).to_html
+    Albino.highlight_code RedCloth.new(raw).to_html
   end
   
   add_renderer :markdown, :filters => [:smart, :autolink] do |raw|
-    RDiscount.new(raw, *ContentRenderer[:markdown].fetch(:filters, [])).to_html
+    html = RDiscount.new(raw, *ContentRenderer[:markdown].fetch(:filters, [])).to_html
+    html.gsub!(/^(?:<p>)?@@@(?:<\/p>)?$/, '</div>')
+    html.gsub!(/^(?:<p>)?@@@\s*([\w\+]+)(?:<\/p>)?$/, '<div class="code" rel="\1">')
+    Albino.highlight_code(html)
   end
   
   add_renderer :raw do |raw|
-    raw.to_s
+    Albino.highlight_code(raw.to_s)
   end
   
 end

@@ -5,7 +5,7 @@ javascripts:
     - public/javascripts/vendor/jquery-1.4.2.js
     - public/javascripts/vendor/jquery.rails.js
     - public/javascripts/vendor/css_browser_selector.js
-    - public/javascripts/vendor/eoraptor.js
+    - public/javascripts/eoraptor.js
   html5_shiv:
     - public/javascripts/vendor/html5.js
 stylesheets:

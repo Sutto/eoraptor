@@ -1,0 +1,12 @@
+%h1 The Archives
+
+- in_year_order(@posts) do |year, yearly_posts|
+  
+  .post-year
+    %h2== Posts from #{year}
+  
+    - in_month_order(yearly_posts) do |month, monthly_posts|
+      %h3== Posts in #{month}
+      %ul.posts
+        - monthly_posts.each do |post|
+          %li= link_to post.title, post_path(post)

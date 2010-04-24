@@ -7,17 +7,27 @@ class Post < ActiveRecord::Base
   
   before_save :render_sections
   
-  scope :published, lambda { where('published_at IS NOT NULL AND published_at <= ?', Time.now) }
+  scope :published,   lambda { where('published_at IS NOT NULL AND published_at <= ?', Time.now) }
+  scope :ordered,     order('published_at DESC')
+  scope :for_listing, select('title, cached_slug, published_at, id')
   
   def published?
     published_at.present? && published_at < Time.now
   end
   
+  def summary_as_html
+    rendered_summary.to_s.html_safe
+  end
+  
+  def content_as_html
+    rendered_content.to_s.html_safe
+  end
+  
   protected
   
   def render_sections
-    ContentRenderer.new(self, :content).render if format_changed? || content_changed?
-    ContentRenderer.new(self, :summary).render if format_changed? || summary_changed?
+    ContentRenderer.new(self, :content).render if rendered_content.blank? || format_changed? || content_changed?
+    ContentRenderer.new(self, :summary).render if rendered_summary.blank? || format_changed? || summary_changed?
   end
   
   def ensure_has_valid_format

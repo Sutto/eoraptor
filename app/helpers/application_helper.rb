@@ -38,4 +38,8 @@ module ApplicationHelper
     "try { var pageTracker = _gat._getTracker(#{identifier.to_json}); pageTracker._trackPageview(); } catch(e) {}"
   end
   
+  def first_paragraph_of(text)
+    Nokogiri::HTML(text).at('p').try(:to_html).try(:html_safe) || text
+  end
+  
 end

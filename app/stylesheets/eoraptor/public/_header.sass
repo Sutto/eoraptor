@@ -2,10 +2,13 @@ header
   nav#header-menu
     padding: 1em 0
     background: url('/images/eoraptor/header-background.png') center center repeat-x
+    +box-shadow(#000, 0, 0, 0.5em)
+    +linear-gradient(color-stops(#222, #444), bottom)
   
     ul
+      width: 960px
       text-align: center
-      margin: 0
+      margin: 0 auto
       padding: 0
       li
         margin: 0
@@ -23,8 +26,8 @@ header
             color: #B23430
   
   h1
-    margin: 0
-    padding: 1em 0 1.5em 1em
+    margin: 0 0 0.5em
+    padding: 1em 0 0
     text-align: center
     a
       display: block

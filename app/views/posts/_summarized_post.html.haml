@@ -1,0 +1,4 @@
+%article[summarized_post]
+  %h2.post-title= link_to summarized_post.title, summarized_post
+  = render :partial => 'post_metadata', :object => summarized_post
+  %section.content.summary~ summary_with_full_link summarized_post

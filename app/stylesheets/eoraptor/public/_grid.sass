@@ -1,10 +1,13 @@
 $ninesixty-columns: 24
 
+$eoraptor-content-width: 18
+$eoraptor-content-sides: ($ninesixty-columns - $eoraptor-content-width) / 2
+
 #container
   +grid-container
   +clearfix
-  #content
+  #content, footer
     +grid-unit-base
-    +grid-width(16)
-    +grid-suffix(4)
-    +grid-prefix(4)
+    +grid-width($eoraptor-content-width)
+    +grid-suffix($eoraptor-content-sides)
+    +grid-prefix($eoraptor-content-sides)

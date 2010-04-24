@@ -48,8 +48,12 @@ gem "annotate"
 gem "rdiscount"
 gem "RedCloth"
 
+gem "nokogiri"
+
 gem "mysql", :group => :production
 gem 'sqlite3-ruby', :require => 'sqlite3', :group => [:development, :test]
+
+gem "barista", ">= 0.1.2", :path => "~/Code/barista"
 
 group :test do
   gem "machinist"
