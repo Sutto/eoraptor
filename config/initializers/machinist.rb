@@ -1,11 +1,10 @@
-# Add other envs here e.g. cucumber
-if Rails.env.test?
+if Rails.env.test? || ENV['MACHINIST']
   require 'machinist'
-  # require 'machinist/active_record'
+  require 'machinist/active_record'
   
   def Machinist.clear!
     Sham.clear
-    # ActiveRecord::Base.clear_blueprints!
+    ActiveRecord::Base.clear_blueprints!
   end
   
   def Machinist.load_blueprints
@@ -13,7 +12,4 @@ if Rails.env.test?
       load file
     end
   end
-  
-  # Put Machinist.load_blueprints in the test_helper.rb
-  
 end

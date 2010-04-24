@@ -11,11 +11,11 @@
     
     %body
       = flash_messages :alert, :notice
+      %header= render :partial => 'shared/header'
+      
       #container
-        %header= render :partial => 'shared/header'
-
         %section#content= yield
 
-        %footer= render :partial => 'shared/footer'
-        = yield :page_bottom
+      %footer= render :partial => 'shared/footer'
+      = yield :page_bottom
       = google_analytics

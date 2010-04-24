@@ -44,6 +44,15 @@ gem "sitemap_generator"
 
 gem "annotate"
 
+# Content conversions
+gem "rdiscount"
+gem "RedCloth"
 
 gem "mysql", :group => :production
 gem 'sqlite3-ruby', :require => 'sqlite3', :group => [:development, :test]
+
+group :test do
+  gem "machinist"
+  gem "shoulda", ">= 3.0.pre", :require => nil, :git => "git://github.com/adamhunter/shoulda.git", :ref => 'rails3'
+  gem "redgreen", :require => nil
+end

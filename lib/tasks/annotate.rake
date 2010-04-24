@@ -1,14 +1,6 @@
 namespace :db do
-  task :migrate do
+  task :annotate do
     Annotate::Migration.update_annotations
-  end
-
-  namespace :migrate do
-    [:up, :down, :reset, :redo].each do |t|
-      task t do
-        Annotate::Migration.update_annotations
-      end
-    end
   end
 end
 

@@ -2,13 +2,9 @@ $ninesixty-columns: 24
 
 #container
   +grid-container
-  footer, #content, #flash-messages
+  +clearfix
+  #content
     +grid-unit-base
-
-footer, #flash-messages
-  +grid-width(24)
-
-#content
-  +grid-width(16)
-  +grid-suffix(4)
-  +grid-prefix(4)
+    +grid-width(16)
+    +grid-suffix(4)
+    +grid-prefix(4)

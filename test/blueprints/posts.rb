@@ -1,8 +1,6 @@
 Post.blueprint do
-  title "MyString"
-  cached_slug "MyString"
-  state "MyString"
-  published_at "2010-04-24 03:05:50"
-  summary "MyText"
-  content "MyText"
+  title   { Forgery(:lorem_ipsum).sentence(:random => true) }
+  format  "markdown"
+  summary { Forgery(:lorem_ipsum).paragraphs(rand(2) + 1, :random => true) }
+  content { Forgery(:lorem_ipsum).paragraphs(rand(5) + 2, :random => true) } 
 end

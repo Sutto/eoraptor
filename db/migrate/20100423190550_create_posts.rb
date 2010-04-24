@@ -1,12 +1,15 @@
 class CreatePosts < ActiveRecord::Migration
   def self.up
     create_table :posts do |t|
-      t.string :title
-      t.string :cached_slug
-      t.string :state
+      t.string   :title
+      t.string   :cached_slug
+      t.string   :state
       t.datetime :published_at
-      t.text :summary
-      t.text :content
+      t.string   :format
+      t.text     :summary
+      t.text     :rendered_summary
+      t.text     :content
+      t.text     :rendered_content
       t.timestamps
     end
     

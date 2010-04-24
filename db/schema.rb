@@ -16,8 +16,11 @@ ActiveRecord::Schema.define(:version => 20100423190550) do
     t.string   "cached_slug"
     t.string   "state"
     t.datetime "published_at"
+    t.string   "format"
     t.text     "summary"
+    t.text     "rendered_summary"
     t.text     "content"
+    t.text     "rendered_content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
