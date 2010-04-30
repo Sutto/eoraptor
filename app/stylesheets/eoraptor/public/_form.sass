@@ -1,0 +1,37 @@
+#contact_form_nickname_input
+  display: none
+
+form.formtastic
+
+  fieldset.inputs
+    margin-top: 1.5em
+    padding-top: 1em
+    
+    legend span
+      font-weight: bold
+      font-size: 1.2em
+      color: #FFF
+
+    ol li
+    
+      label
+        color: #DDD
+        
+        abbr.required
+          color: #FF9287
+          border-bottom: 1px dashed #FF9287
+          font-size: 0.9em
+    
+      p.inline-errors
+        color: #FF714D
+      p.inline-hints
+        color: #749989
+
+  fieldset.buttons
+  
+    ol li.commit
+      button
+        font-weight: bold
+        +fancy-button(#CCC, 14px)
+        +fix-fb-padding
+        

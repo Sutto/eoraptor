@@ -3,6 +3,9 @@ Eoraptor ?= {}
 
 # Now, use a nested closure with the namespace object and jquery.
 ((ns, $) ->
+
+  scopedClosure: (closure, scope) ->
+    closure.call scope, scope if $.isFunction closure
   
   # Base is the default mixin for namespaces.
   base:  {}
@@ -45,9 +48,9 @@ Eoraptor ?= {}
       currentNS[name] = makeNS({}, name, currentNS) if not currentNS[name]?
       currentNS: currentNS[name]
     hadSetup: $.isFunction currentNS.setup
-    closure(currentNS) if $.isFunction closure
+    scopedClosure closure, currentNS
     if not hadSetup and $.isFunction currentNS.setup
-      ns.setupVia currentNS.setup
+      currentNS.setupVia currentNS.setup
     currentNS
     
   # Get, if defined, the given namespace.
@@ -86,20 +89,40 @@ Eoraptor ?= {}
   # scope of it's caller.
   base.setupVia: (f) ->
     $(document).ready =>
-      if @autosetup? and $.isFunction f
-        f.apply @
+      scopedClosure(f, @) if @autosetup?
   
   # Define a class under the current namespace.
   base.defineClass: (name, closure) ->
     klass: ->
       @initialize.apply @, arguments if $.isFunction @initialize
-    closure.call klass.prototype, klass.prototype if $.isFunction closure
+    scopedClosure closure, klass.prototype
     @[name] = klass
     klass
+
+  # Equivalent to console.log but prefix with the current namespace
+  base.log: (args...) ->
+    console.log "[${@toNSName()}]", args...
+    
+  base.debug: (args...) ->
+    console.log "[Debug - ${@toNSName()}]", args...
 
   # If set to false, the setup blocks in namespaces wont be
   # automatically called on document ready.
   base.autosetup: true
+  
+  # Read / set a data attribute on an object.
+  base.data: (object, key, value) ->
+    object: $(object) if typeof object is "string" 
+    data: "data-${key.replace(/_/g, '-')}"
+    if value?
+      object.attr data, value
+    else
+      object.attr data
+  
+  # Returns the value of the given meta key. 
+  base.getMeta: (key) ->
+    $("meta[name='$key']").attr("content")
+      
   
   # Setup the default namespace, in this case eoraptor.
   makeNS ns, 'Eoraptor'

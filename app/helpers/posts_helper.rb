@@ -24,9 +24,20 @@ module PostsHelper
   def in_month_order(posts)
     months = posts.map { |p| p.published_at.month }.uniq.sort.reverse
     months.each do |month|
-      ordered_posts = posts.select { |p| p.published_at.month == month }.sort_by(&:published_at)
+      ordered_posts = posts.select { |p| p.published_at.month == month }.sort_by(&:published_at).reverse
       yield Time.utc(Time.now.year, month).strftime("%B"), ordered_posts if block_given?
     end
+  end
+  
+  def disqus_identifier_for(object)
+    "#{object.class.model_name.underscore.dasherize}-#{object.id}"
+  end
+  
+  def has_disqus_identifier_for(object)
+    inner = meta_tag("disqus-identifier", disqus_identifier_for(object))
+    inner << meta_tag("disqus-site", Settings.disqus.site) if Settings.disqus.site?
+    inner << meta_tag("disqus-developer", "true") unless Rails.env.production?
+    content_for :extra_head, inner
   end
   
   protected

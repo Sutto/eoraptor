@@ -13,7 +13,7 @@ git "git://github.com/railsjedi/jammit.git"
 gem 'rails', '3.0.0.beta3'
 gem "rails3-generators"
 
-gem "haml"
+gem "haml", ">= 3.0.0.beta.3"
 gem "forgery", ">= 0.3.4"
 
 gem 'unicorn'
@@ -53,7 +53,9 @@ gem "nokogiri"
 gem "mysql", :group => :production
 gem 'sqlite3-ruby', :require => 'sqlite3', :group => [:development, :test]
 
-gem "barista", ">= 0.1.2", :path => "~/Code/barista"
+gem "barista", ">= 0.1.4"
+
+gem "bhm-admin", :path => "~/Code/YouthTree/bhm_admin"
 
 group :test do
   gem "machinist"

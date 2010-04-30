@@ -91,3 +91,35 @@ $eoraptor-spacer-border: #666 !default
           border: 0.2em solid #666
           background: #FFF
           +box-shadow(#000, 0, 0, 0.5em)
+
+#disqus_thread
+  #dsq-content
+    h3
+      text-align: left
+  
+  input.dsq-trackback-url
+    color: #EEE
+    width: 300px
+  a
+    +link-colors(#B6DCFF)
+
+#tweet-container
+  display: none
+  font-size: 1em
+  color: #EEE
+  text-align: center
+  background: #333
+  padding: 1em
+  line-height: 1.5em
+  margin: 0.1em 0 0.5em
+  +border-radius(0.5em)
+  +box-shadow(#111, 0, 0, 0.5em)
+  +linear-gradient(color-stops(#202020, #2F2F2F), bottom)
+  span#tweet-text
+    color: #FFF
+    a
+      +link-colors(#A8BCD2, #D85561)
+  span#tweet-when
+    color: #FFDEBB
+  span.tweet-misc
+    color: #999

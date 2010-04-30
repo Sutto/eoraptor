@@ -6,8 +6,20 @@ javascripts:
     - public/javascripts/vendor/jquery.rails.js
     - public/javascripts/vendor/css_browser_selector.js
     - public/javascripts/eoraptor.js
+    - public/javascripts/eoraptor/util.js
+    - public/javascripts/eoraptor/twitter.js
   html5_shiv:
     - public/javascripts/vendor/html5.js
+  disqus:
+    - public/javascripts/eoraptor/disqus.js
+  admin:
+    - public/javascripts/vendor/jquery-1.4.2.js
+    - public/javascripts/vendor/jquery.rails.js
+    - public/javascripts/vendor/css_browser_selector.js
+    - public/javascripts/eoraptor.js
+    - public/javascripts/eoraptor/util.js
 stylesheets:
+  admin:
+    - public/stylesheets/eoraptor-admin.css
   base:
     - public/stylesheets/eoraptor.css

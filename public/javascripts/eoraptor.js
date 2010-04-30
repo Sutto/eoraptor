@@ -8,7 +8,12 @@ var __slice = Array.prototype.slice, __bind = function(func, obj, args) {
 Eoraptor = (typeof Eoraptor !== "undefined" && Eoraptor !== null) ? Eoraptor : {};
 // Now, use a nested closure with the namespace object and jquery.
 (function(ns, $) {
-  var base, makeNS;
+  var base, makeNS, scopedClosure;
+  scopedClosure = function scopedClosure(closure, scope) {
+    if ($.isFunction(closure)) {
+      return closure.call(scope, scope);
+    }
+  };
   // Base is the default mixin for namespaces.
   base = {};
   // Configurable options for require
@@ -57,10 +62,8 @@ Eoraptor = (typeof Eoraptor !== "undefined" && Eoraptor !== null) ? Eoraptor : {
       currentNS = currentNS[name];
     }
     hadSetup = $.isFunction(currentNS.setup);
-    if ($.isFunction(closure)) {
-      closure(currentNS);
-    }
-    !hadSetup && $.isFunction(currentNS.setup) ? ns.setupVia(currentNS.setup) : null;
+    scopedClosure(closure, currentNS);
+    !hadSetup && $.isFunction(currentNS.setup) ? currentNS.setupVia(currentNS.setup) : null;
     return currentNS;
   };
   // Get, if defined, the given namespace.
@@ -110,8 +113,8 @@ Eoraptor = (typeof Eoraptor !== "undefined" && Eoraptor !== null) ? Eoraptor : {
   base.setupVia = function setupVia(f) {
     return $(document).ready(__bind(function() {
         var _a;
-        if ((typeof (_a = this.autosetup) !== "undefined" && _a !== null) && $.isFunction(f)) {
-          return f.apply(this);
+        if ((typeof (_a = this.autosetup) !== "undefined" && _a !== null)) {
+          return scopedClosure(f, this);
         }
       }, this));
   };
@@ -123,15 +126,41 @@ Eoraptor = (typeof Eoraptor !== "undefined" && Eoraptor !== null) ? Eoraptor : {
         return this.initialize.apply(this, arguments);
       }
     };
-    if ($.isFunction(closure)) {
-      closure.call(klass.prototype, klass.prototype);
-    }
+    scopedClosure(closure, klass.prototype);
     this[name] = klass;
     return klass;
+  };
+  // Equivalent to console.log but prefix with the current namespace
+  base.log = function log() {
+    var args;
+    args = __slice.call(arguments, 0, arguments.length - 0);
+    return console.log.apply(console, [("[" + (this.toNSName()) + "]")].concat(args));
+  };
+  base.debug = function debug() {
+    var args;
+    args = __slice.call(arguments, 0, arguments.length - 0);
+    return console.log.apply(console, [("[Debug - " + (this.toNSName()) + "]")].concat(args));
   };
   // If set to false, the setup blocks in namespaces wont be
   // automatically called on document ready.
   base.autosetup = true;
+  // Read / set a data attribute on an object.
+  base.data = function data(object, key, value) {
+    var data;
+    if (typeof object === "string") {
+      object = $(object);
+    }
+    data = ("data-" + (key.replace(/_/g, '-')));
+    if ((typeof value !== "undefined" && value !== null)) {
+      return object.attr(data, value);
+    } else {
+      return object.attr(data);
+    }
+  };
+  // Returns the value of the given meta key.
+  base.getMeta = function getMeta(key) {
+    return $(("meta[name='" + key + "']")).attr("content");
+  };
   // Setup the default namespace, in this case eoraptor.
   return makeNS(ns, 'Eoraptor');
 })(Eoraptor, jQuery);

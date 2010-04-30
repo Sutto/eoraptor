@@ -4,3 +4,6 @@ en:
       posts:
         index: "Recently posted"
         show:  "{{post_title}}"
+      contacts:
+        new: "Contact Me"
+        create: "Contact Me"

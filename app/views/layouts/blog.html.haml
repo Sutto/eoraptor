@@ -7,6 +7,8 @@
     = include_stylesheets(:base, :media => 'screen, projection')
     = include_javascripts :base
     = csrf_meta_tag
+    - if Settings.twitter.user?
+      = meta_tag "twitter-user", Settings.twitter.user.to_s
     = yield :extra_head
     
   %body
@@ -15,6 +17,7 @@
     
     #container
       %section#content
+        = render :partial => 'shared/tweet_container'
         #inner-content= yield
       %footer= render :partial => 'shared/footer'
     = yield :page_bottom

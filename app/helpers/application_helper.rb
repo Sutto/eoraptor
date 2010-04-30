@@ -42,4 +42,8 @@ module ApplicationHelper
     Nokogiri::HTML(text).at('p').try(:to_html).try(:html_safe) || text
   end
   
+  def meta_tag(name, content)
+    tag(:meta, :name => name.to_s, :content => content.to_s)
+  end
+  
 end
