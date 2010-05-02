@@ -11,6 +11,8 @@ class Post < ActiveRecord::Base
   scope :ordered,     order('published_at DESC')
   scope :for_listing, select('title, cached_slug, published_at, id')
   
+  scope :ordered_with_unpublished_first, order('(published_at IS NULL) DESC, published_at DESC')
+  
   def published?
     published_at.present? && published_at < Time.now
   end

@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100423190550) do
+ActiveRecord::Schema.define(:version => 20100501221525) do
 
   create_table "posts", :force => true do |t|
     t.string   "title"
@@ -27,6 +27,22 @@ ActiveRecord::Schema.define(:version => 20100423190550) do
 
   add_index "posts", ["cached_slug", "published_at"], :name => "index_posts_on_cached_slug_and_published_at"
   add_index "posts", ["cached_slug"], :name => "index_posts_on_cached_slug"
+
+  create_table "projects", :force => true do |t|
+    t.string   "name"
+    t.text     "description"
+    t.text     "rendered_description"
+    t.string   "github_user"
+    t.string   "github_repository"
+    t.string   "website"
+    t.datetime "published_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "cached_slug"
+    t.string   "format"
+  end
+
+  add_index "projects", ["cached_slug"], :name => "index_projects_on_cached_slug"
 
   create_table "slugs", :force => true do |t|
     t.string   "scope"

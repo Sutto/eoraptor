@@ -1,0 +1,21 @@
+%h2.title== Viewing all #{current_resource_name.pluralize}
+
+= will_paginate collection
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th Published At
+      %th Format
+      %th &nbsp;
+  %tbody
+    - collection.each do |project|
+      %tr{:class => cycle('odd', 'even')}
+        %td= link_to project.name, [:admin, project]
+        %td= formatted_published_time project
+        %td= project.format.to_s.humanize
+        %td.actions= individual_resource_links r
+    = empty_row_for_collection 3
+        
+= will_paginate collection

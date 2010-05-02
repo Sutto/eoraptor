@@ -2,6 +2,8 @@ Eoraptor::Application.routes.draw do |map|
   
   namespace :admin do
     get 'dashboard', :as => :dashboard, :to => 'dashboard#index'
+    resources :posts
+    resources :projects
   end
   
   root :to => 'posts#index'

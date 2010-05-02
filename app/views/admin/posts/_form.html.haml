@@ -1,0 +1,10 @@
+= form.inputs :name => "General Post Details" do
+  = form.input :title  
+  = form.input :format, :as => :select, :collection => ContentRenderer.for_select, :include_blank => false
+  
+= form.inputs :name => "Post Contents" do
+  ~ form.input :summary, :input_html => {:rows => 5}
+  ~ form.input :content, :input_html => {:rows => 25}
+
+  
+  

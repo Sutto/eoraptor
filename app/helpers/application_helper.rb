@@ -46,4 +46,8 @@ module ApplicationHelper
     tag(:meta, :name => name.to_s, :content => content.to_s)
   end
   
+  def formatted_published_time(object)
+    object.published_at.blank? ? "Not yet published" : l(object.published_at, :format => :long)
+  end
+  
 end
