@@ -1,4 +1,4 @@
 ---
 host: sutto.net
-user: deploy
+user: blog
 app: /var/apps/nh-blog

@@ -1,8 +1,12 @@
 module PostsHelper
   
-  def summary_with_full_link(post)
+  def summary_with_full_link(post, options = {})
     html = first_paragraph_of post.summary_as_html
-    link = link_to "Continue Reading &raquo;".html_safe, post_path(post), :class => 'view-more'
+    if options[:rss]
+      link = link_to "Continue reading on the Blog&raquo;".html_safe, post_path(post), :class => 'view-more'
+    else
+      link = link_to "Continue Reading &raquo;".html_safe, post_path(post), :class => 'view-more'
+    end
     html.gsub(/(\.|\!|\?)?\s*<\/p>/) { "#{$1 || "."} #{link}</p>" }.html_safe
   end
   
