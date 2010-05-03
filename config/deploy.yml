@@ -1,0 +1,4 @@
+---
+host: sutto.net
+user: deploy
+app: /var/apps/nh-blog
