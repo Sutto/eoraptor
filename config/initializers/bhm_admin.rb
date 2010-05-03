@@ -1,0 +1,1 @@
+BHM::Admin.site_name = "Eoraptor"

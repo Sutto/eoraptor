@@ -44,18 +44,15 @@ gem "sitemap_generator"
 
 gem "annotate"
 
-# Content conversions
-gem "rdiscount"
-gem "RedCloth"
-
-gem "nokogiri"
-
 gem "mysql", :group => :production
 gem 'sqlite3-ruby', :require => 'sqlite3', :group => [:development, :test]
 
-gem "barista", ">= 0.1.4"
+gem "nokogiri"
 
-gem "bhm-admin", :path => "~/Code/YouthTree/bhm_admin"
+gem "barista"
+gem "bhm-admin"
+
+gem "almost-happy", ">= 0.1.1"
 
 group :test do
   gem "machinist"

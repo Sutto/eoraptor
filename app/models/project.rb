@@ -1,31 +1,22 @@
 class Project < ActiveRecord::Base
   
-  is_sluggable :name
+  is_publishable
+  is_convertable :description
+  is_sluggable   :name
   
-  scope :published, lambda { where('published_at IS NOT NULL AND published_at <= ?', Time.now) }
-  scope :ordered_with_unpublished_first, order('(published_at IS NULL) DESC, published_at DESC')
-  scope :ordered, order('published_at DESC')
-  
-  validates_presence_of :name, :description, :format
-  validate              :ensure_has_valid_format
-  
-  before_save :render_sections
+  validates_presence_of :name, :description
   
   def has_github_info?
     github_user.present? && github_repository.present?
   end
   
-  protected
-  
-  def render_sections
-    ContentRenderer.new(self, :description).render if rendered_description.blank? || format_changed? || description_changed?
-  end
-  
-  def ensure_has_valid_format
-    errors.add :format, :invalid_format unless ContentRenderer.valid_format?(format)
+  def github_url
+    return unless has_github_info?
+    "http://github.com/#{github_user}/#{github_repository}"
   end
   
 end
+
 
 # == Schema Information
 #
@@ -41,5 +32,7 @@ end
 #  published_at         :datetime
 #  created_at           :datetime
 #  updated_at           :datetime
+#  cached_slug          :string(255)
+#  format               :string(255)
 #
 

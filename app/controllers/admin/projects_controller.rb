@@ -1,2 +1,2 @@
-class Admin::ProjectsController < Admin::BaseController
+class Admin::ProjectsController < Admin::PublishableBaseController
 end

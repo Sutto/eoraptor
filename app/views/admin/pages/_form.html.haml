@@ -1,0 +1,8 @@
+= form.inputs :name => "General Page Details" do
+  = form.input :title
+  = form.input :published_at
+  = form.input :in_menu, :label => "Show in the page menu"
+  
+= form.inputs :name => "Page Content" do
+  = form.input :format, :as => :select, :collection => AlmostHappy::Convertor.for_select, :include_blank => false
+  ~ form.input :content, :input_html => {:rows => 25}

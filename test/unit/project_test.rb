@@ -7,6 +7,7 @@ class ProjectTest < ActiveSupport::TestCase
   end
 end
 
+
 # == Schema Information
 #
 # Table name: projects
@@ -21,5 +22,7 @@ end
 #  published_at         :datetime
 #  created_at           :datetime
 #  updated_at           :datetime
+#  cached_slug          :string(255)
+#  format               :string(255)
 #
 

@@ -1,5 +1,25 @@
 %h2.title== Viewing #{current_resource_name}
 
 = show_for resource do |r|
-  - (resource_class.column_names - [:created_at, :updated_at]).each do |column|
-    = r.attribute column.to_sym
+  
+  = r.attribute :id
+  
+  = r.attribute :name
+  
+  = r.attribute :published_at
+  
+  = r.attribute :format
+  
+  = r.attribute :description do
+    .content-preview= resource.description_as_html
+    
+  = r.attribute :github_user
+  
+  = r.attribute :github_repository
+  
+  - if resource.github_url.present?
+    = r.attribute :github_url do
+      = link_to resource.github_url, resource.github_url
+    
+  
+    

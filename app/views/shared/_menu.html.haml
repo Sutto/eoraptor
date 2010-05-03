@@ -1,6 +1,7 @@
 %ul
   = ml "Home", :root
-  = ml "About Me", "#"
-  = ml "Archives", :post_archives
-  = ml "Projects", "#"
+  - Page.ordered_for_menu.find_each do |page|
+    = ml page.title, page_path(page)
+  = ml "Archives",   :post_archives
+  = ml "Projects",   :projects
   = ml "Contact Me", :contact_me

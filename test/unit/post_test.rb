@@ -3,7 +3,7 @@ require 'test_helper'
 class PostTest < ActiveSupport::TestCase
   context 'when performing validations' do
     should_validate_presence_of :title, :summary, :content
-    should_allow_values_for     :format, *ContentRenderer.renderers.keys
+    should_allow_values_for     :format, *AlmostHappy::Convertor.renderers.keys
     should_not_allow_values_for :format, "ninja-attack", 32, "Rock and Roll"
   end
 end

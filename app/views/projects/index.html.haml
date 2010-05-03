@@ -1,0 +1,8 @@
+%h1 Projects
+
+#projects
+  = render :collection => @projects, :partial => 'summarized_project', :spacer_template => 'project_spacer'
+  - if @projects.blank?
+    %p#empty-listing Woops! it looks like there aren't any projects here at the moment...
+  - else
+    %hr.project-spacer

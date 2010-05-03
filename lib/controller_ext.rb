@@ -18,7 +18,7 @@ module ControllerExt
   
   def uses_controller_extension(*args)
     args.each do |k|
-      mod = ControllerExt[k]
+      mod = ::ControllerExt[k]
       include mod if mod.present?
     end
   end

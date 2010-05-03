@@ -1,40 +1,12 @@
 class Post < ActiveRecord::Base
   
-  is_sluggable :title
-  
   validates_presence_of :title, :content, :summary
-  validate              :ensure_has_valid_format
   
-  before_save :render_sections
+  is_publishable
+  is_convertable :content, :summary
+  is_sluggable   :title
   
-  scope :published,   lambda { where('published_at IS NOT NULL AND published_at <= ?', Time.now) }
-  scope :ordered,     order('published_at DESC')
   scope :for_listing, select('title, cached_slug, published_at, id')
-  
-  scope :ordered_with_unpublished_first, order('(published_at IS NULL) DESC, published_at DESC')
-  
-  def published?
-    published_at.present? && published_at < Time.now
-  end
-  
-  def summary_as_html
-    rendered_summary.to_s.html_safe
-  end
-  
-  def content_as_html
-    rendered_content.to_s.html_safe
-  end
-  
-  protected
-  
-  def render_sections
-    ContentRenderer.new(self, :content).render if rendered_content.blank? || format_changed? || content_changed?
-    ContentRenderer.new(self, :summary).render if rendered_summary.blank? || format_changed? || summary_changed?
-  end
-  
-  def ensure_has_valid_format
-    errors.add :format, :invalid_format unless ContentRenderer.valid_format?(format)
-  end
   
 end
 
