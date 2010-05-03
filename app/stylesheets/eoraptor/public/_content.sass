@@ -133,3 +133,73 @@ $eoraptor-spacer-border: #666 !default
     color: #FFDEBB
   span.tweet-misc
     color: #999
+
+#inner-content
+  #project
+    h1
+      margin-bottom: 0.3em
+    #project-short-description
+      text-align: center
+      font-size: 1em
+      color: #CCC
+      border-bottom: 1px solid $eoraptor-spacer-border
+      padding: 0 0 0.5em
+      margin: 0 0 1.5em
+      font-weight: bold
+    
+    #github-info
+      text-align: center
+      font-size: 1em
+      border-bottom: 1px solid $eoraptor-spacer-border
+      padding: 0.2em 0 0.35em
+      a
+        +link-colors(#C0E2FF, #995D5D)
+    h2
+      color: #FFF
+      font-size: 1.3em
+      margin: 0 0 0.25em
+      border-bottom: 1px solid $eoraptor-spacer-border
+      
+    #project-description
+      h1, h2, h3, h4, h5, h6
+        color: #FFF
+        border-bottom: none
+      h1
+        font-size: 1.5em
+      h2
+        font-size: 1.4em
+      h3
+        font-size: 1.3em
+      h4
+        font-size: 1.2em
+      h5
+        font-size: 1.1em
+      h6
+        font-size: 1em
+    
+    #view-project
+      text-align: center
+      font-size: 1.2em
+      padding: 0.25em 0 0.5em
+      a
+        +link-colors(#C0E2FF, #995D5D)
+    
+    #github-commits
+    
+      ul#commit-listing
+        margin: 0
+        font-size: 0.9em
+        line-height: 1em
+        padding: 0
+        text-align: center
+        li
+          margin: 1.5em 0
+          list-style: none
+          a
+            font-weight: bold
+            +link-colors(#BBD3EE, #D85561)
+          span.gh-commit-misc
+            color: #EEE
+          span.gh-commit-commited-at
+            color: #FFDEBB
+          

@@ -1,17 +1,17 @@
-Eoraptor.withNS 'Util', ->
+Eoraptor.withNS 'Util', (ns) ->
 
-  @escapeHTML: (s) ->
+  ns.escapeHTML: (s) ->
     s.replace(/&/g, '&amp;').replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;")
   
-  @autolink: (text) ->
+  ns.autolink: (text) ->
     text.replace /(\bhttp:\/\/\S+(\/|\b))/gi, '<a href="$1" target="_blank">$1</a>'
     
-  @format: (text) ->
-    @autolink @escapeHTML text
+  ns.format: (text) ->
+    ns.autolink ns.escapeHTML text
     
-  @h: @escapeHTML
+  ns.h: ns.escapeHTML
   
-  @formatTime: (s) ->
+  ns.formatTime: (s) ->
     time: new Date(s)
     period: ""
     hour: time.getHours()
@@ -29,18 +29,24 @@ Eoraptor.withNS 'Util', ->
     minutesPrefix: if minutes < 10 then "0" else ""
     "$hour:$minutesPrefix$minutes $period"
   
-  @attachUpdatingTimeAgo: (object, date) ->
-    existing: @data object, "time-ago-interval"
+  ns.attachUpdatingTimeAgo: (object, date) ->
+    existing: $(object).dataAttr "time-ago-interval"
     clearInterval(parseInt(existing, 10)) if existing?
     update: =>
-      object.html @timeAgoInWords(date)
+      object.html ns.timeAgoInWords(date)
     update()
-    @data object, "time-ago-interval", setInterval(update, 60000)
+    $(object).dataAttr "time-ago-interval", setInterval(update, 60000)
   
-  @timeAgoInWords: (date) ->
+  ns.truncate: (text, length) ->
+    length?= 100
+    suffix: if text.length > length then "&hellip;" else ""
+    text: "${ns.h text.slice(0, length)}$suffix"
+  
+  ns.timeAgoInWords: (date) ->
     time: Number new Date(date)
     now:  Number new Date()
     secondsAgo: (now - time) / 1000
+    console.log secondsAgo
     # Check up to two hours ago
     minutesAgo: Math.floor secondsAgo / 60
     if      minutesAgo is 0 then return "less than a minute"
@@ -60,6 +66,6 @@ Eoraptor.withNS 'Util', ->
     if      monthsAgo < 12 then return "$monthsAgo months"
     else if monthsAgo < 24 then return "about one year"
     # Finally, return a years amount
-    "over ${Math.floor monthsAgo / 12} years"
+    "over ${Math.floor(monthsAgo / 12)} years"
     
     

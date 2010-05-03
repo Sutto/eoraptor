@@ -7,3 +7,6 @@ en:
       contacts:
         new: "Contact Me"
         create: "Contact Me"
+      projects:
+        index: "My Projects"
+        show: "Project: {{project_name}}"

@@ -1,0 +1,26 @@
+- if @project.has_github_info?
+  - has_jammit_js :github
+  - content_for :extra_head do
+    = meta_tag "github.user",       @project.github_user
+    = meta_tag "github.repository", @project.github_repository
+
+#project
+  %h1= @project.name
+
+  %p#project-short-description= @project.short_description
+
+  - if @project.website.present?
+    %p#view-project== Interested? You can #{link_to "view this project live".html_safe, @project.website}.
+
+  %h2 About this Project
+  - if @project.has_github_info?
+    %p#github-info
+      %strong View on GitHub:
+      = link_to @project.github_url, @project.github_url
+  %section.content#project-description~ @project.description_as_html
+  
+  - if @project.has_github_info?
+    %section#github-commits
+      %h2 Recent Commits to GitHub Repository
+      %ul#commit-listing
+        %li.empty Loading commit information...

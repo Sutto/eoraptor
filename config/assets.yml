@@ -5,6 +5,7 @@ javascripts:
     - public/javascripts/vendor/jquery-1.4.2.js
     - public/javascripts/vendor/jquery.rails.js
     - public/javascripts/vendor/css_browser_selector.js
+    - public/javascripts/vendor/shuriken/**/*.js
     - public/javascripts/eoraptor.js
     - public/javascripts/eoraptor/util.js
     - public/javascripts/eoraptor/twitter.js
@@ -18,6 +19,9 @@ javascripts:
     - public/javascripts/vendor/css_browser_selector.js
     - public/javascripts/eoraptor.js
     - public/javascripts/eoraptor/util.js
+  github:
+    - public/javascripts/vendor/date_iso8601.js
+    - public/javascripts/eoraptor/git_hub.js
 stylesheets:
   admin:
     - public/stylesheets/eoraptor-admin.css

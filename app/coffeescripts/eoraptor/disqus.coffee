@@ -1,22 +1,22 @@
-Eoraptor.withNS 'Disqus', ->
+Eoraptor.withNS 'Disqus', (ns) ->
   
-  @currentIdentifier: ->
-    @getMeta "disqus-identifier"
+  ns.currentIdentifier: ->
+    $.metaAttr "disqus-identifier"
   
-  @currentSite: ->
-    @getMeta "disqus-site"
+  ns.currentSite: ->
+    $.metaAttr "disqus-site"
   
-  @isDebug: ->
-    @getMeta("disqus-developer") is "true"
+  ns.isDebug: ->
+    $.metaAttr("disqus-developer") is "true"
   
-  @configureDisqus: ->
-    window.disqus_identifier: @currentIdentifier()
-    window.disqus_developer:  1 if @isDebug()
+  ns.configureDisqus: ->
+    window.disqus_identifier: ns.currentIdentifier()
+    window.disqus_developer:  1 if ns.isDebug()
   
-  @addScripts: ->
-    @configureDisqus()
+  ns.addScripts: ->
+    ns.configureDisqus()
     script: $ "<script />", {type: "text/javascript", async: true}
-    script.attr "src", "http://${@currentSite()}.disqus.com/embed.js"
+    script.attr "src", "http://${ns.currentSite()}.disqus.com/embed.js"
     script.appendTo $ "head"
     
-  @setup: -> @addScripts()
+  ns.setup: -> ns.addScripts()

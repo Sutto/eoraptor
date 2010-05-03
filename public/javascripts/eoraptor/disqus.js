@@ -1,32 +1,32 @@
-Eoraptor.withNS('Disqus', function() {
-  this.currentIdentifier = function currentIdentifier() {
-    return this.getMeta("disqus-identifier");
+Eoraptor.withNS('Disqus', function(ns) {
+  ns.currentIdentifier = function currentIdentifier() {
+    return $.metaAttr("disqus-identifier");
   };
-  this.currentSite = function currentSite() {
-    return this.getMeta("disqus-site");
+  ns.currentSite = function currentSite() {
+    return $.metaAttr("disqus-site");
   };
-  this.isDebug = function isDebug() {
-    return this.getMeta("disqus-developer") === "true";
+  ns.isDebug = function isDebug() {
+    return $.metaAttr("disqus-developer") === "true";
   };
-  this.configureDisqus = function configureDisqus() {
-    window.disqus_identifier = this.currentIdentifier();
-    if (this.isDebug()) {
+  ns.configureDisqus = function configureDisqus() {
+    window.disqus_identifier = ns.currentIdentifier();
+    if (ns.isDebug()) {
       window.disqus_developer = 1;
       return window.disqus_developer;
     }
   };
-  this.addScripts = function addScripts() {
+  ns.addScripts = function addScripts() {
     var script;
-    this.configureDisqus();
+    ns.configureDisqus();
     script = $("<script />", {
       type: "text/javascript",
       async: true
     });
-    script.attr("src", ("http://" + (this.currentSite()) + ".disqus.com/embed.js"));
+    script.attr("src", ("http://" + (ns.currentSite()) + ".disqus.com/embed.js"));
     return script.appendTo($("head"));
   };
-  this.setup = function setup() {
-    return this.addScripts();
+  ns.setup = function setup() {
+    return ns.addScripts();
   };
-  return this.setup;
+  return ns.setup;
 });

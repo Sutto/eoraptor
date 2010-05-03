@@ -3,18 +3,18 @@ var __slice = Array.prototype.slice, __bind = function(func, obj, args) {
       return func.apply(obj || {}, args ? args.concat(__slice.call(arguments, 0)) : arguments);
     };
   };
-Eoraptor.withNS('Util', function() {
-  this.escapeHTML = function escapeHTML(s) {
+Eoraptor.withNS('Util', function(ns) {
+  ns.escapeHTML = function escapeHTML(s) {
     return s.replace(/&/g, '&amp;').replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;");
   };
-  this.autolink = function autolink(text) {
+  ns.autolink = function autolink(text) {
     return text.replace(/(\bhttp:\/\/\S+(\/|\b))/gi, '<a href="$1" target="_blank">$1</a>');
   };
-  this.format = function format(text) {
-    return this.autolink(this.escapeHTML(text));
+  ns.format = function format(text) {
+    return ns.autolink(ns.escapeHTML(text));
   };
-  this.h = this.escapeHTML;
-  this.formatTime = function formatTime(s) {
+  ns.h = ns.escapeHTML;
+  ns.formatTime = function formatTime(s) {
     var hour, minutes, minutesPrefix, period, preiod, time;
     time = new Date(s);
     period = "";
@@ -34,23 +34,31 @@ Eoraptor.withNS('Util', function() {
     minutesPrefix = minutes < 10 ? "0" : "";
     return "" + hour + ":" + minutesPrefix + minutes + " " + period;
   };
-  this.attachUpdatingTimeAgo = function attachUpdatingTimeAgo(object, date) {
+  ns.attachUpdatingTimeAgo = function attachUpdatingTimeAgo(object, date) {
     var existing, update;
-    existing = this.data(object, "time-ago-interval");
+    existing = $(object).dataAttr("time-ago-interval");
     if ((typeof existing !== "undefined" && existing !== null)) {
       clearInterval(parseInt(existing, 10));
     }
     update = __bind(function() {
-        return object.html(this.timeAgoInWords(date));
+        return object.html(ns.timeAgoInWords(date));
       }, this);
     update();
-    return this.data(object, "time-ago-interval", setInterval(update, 60000));
+    return $(object).dataAttr("time-ago-interval", setInterval(update, 60000));
   };
-  this.timeAgoInWords = function timeAgoInWords(date) {
+  ns.truncate = function truncate(text, length) {
+    var suffix;
+    length = (typeof length !== "undefined" && length !== null) ? length : 100;
+    suffix = text.length > length ? "&hellip;" : "";
+    text = ("" + (ns.h(text.slice(0, length))) + suffix);
+    return text;
+  };
+  ns.timeAgoInWords = function timeAgoInWords(date) {
     var daysAgo, hoursAgo, minutesAgo, monthsAgo, now, secondsAgo, time;
     time = Number(new Date(date));
     now = Number(new Date());
     secondsAgo = (now - time) / 1000;
+    console.log(secondsAgo);
     // Check up to two hours ago
     minutesAgo = Math.floor(secondsAgo / 60);
     if (minutesAgo === 0) {
@@ -86,5 +94,5 @@ Eoraptor.withNS('Util', function() {
     // Finally, return a years amount
     return "over " + (Math.floor(monthsAgo / 12)) + " years";
   };
-  return this.timeAgoInWords;
+  return ns.timeAgoInWords;
 });
