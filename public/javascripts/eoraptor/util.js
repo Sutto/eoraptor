@@ -58,7 +58,6 @@ Eoraptor.withNS('Util', function(ns) {
     time = Number(new Date(date));
     now = Number(new Date());
     secondsAgo = (now - time) / 1000;
-    console.log(secondsAgo);
     // Check up to two hours ago
     minutesAgo = Math.floor(secondsAgo / 60);
     if (minutesAgo === 0) {

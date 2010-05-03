@@ -29,7 +29,6 @@ Eoraptor.withNS 'GitHub', (ns) ->
     inner.append spanWithClass 'misc', ' about '
     
     commitedTime: ghParseDate commit.committed_date
-    console.log commit.committed_date, commitedTime
     time: spanWithClass 'commited-at', ''
     Eoraptor.Util.attachUpdatingTimeAgo time, commitedTime
     inner.append time

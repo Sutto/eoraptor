@@ -46,7 +46,6 @@ Eoraptor.withNS 'Util', (ns) ->
     time: Number new Date(date)
     now:  Number new Date()
     secondsAgo: (now - time) / 1000
-    console.log secondsAgo
     # Check up to two hours ago
     minutesAgo: Math.floor secondsAgo / 60
     if      minutesAgo is 0 then return "less than a minute"

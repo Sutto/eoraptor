@@ -13,3 +13,4 @@ public/stylesheets/*
 public/javascripts/eoraptor.js
 public/javascripts/eoraptor/*
 public/javascripts/vendor/shuriken
+config/users.yml
