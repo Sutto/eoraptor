@@ -1,2 +1,6 @@
-%article[summarized_project]
-  %h2.post-title= link_to summarized_project.name, summarized_project
+%article.summarized-project[summarized_project]
+  %h2.project-title= link_to summarized_project.name, summarized_project
+  %p.project-description
+    = summarized_project.short_description
+    = link_to 'View &raquo;'.html_safe, summarized_project, :class => 'view-more'
+  

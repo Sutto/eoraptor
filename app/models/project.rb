@@ -4,7 +4,7 @@ class Project < ActiveRecord::Base
   is_convertable :description
   is_sluggable   :name
   
-  validates_presence_of :name, :description
+  validates_presence_of :name, :description, :short_description
   
   def has_github_info?
     github_user.present? && github_repository.present?

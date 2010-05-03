@@ -52,7 +52,15 @@ $eoraptor-spacer-border: #666 !default
         color: #666
       a
         +link-colors(#FFF)
-      
+    
+    a.view-more
+      font-size: 0.8em
+      font-weight: bold
+      color: #999
+      padding-left: 0.25em
+      margin-top: -0.1em
+      +inline-block
+    
     // Styles that apply to editable content
     section.content
       a
@@ -76,13 +84,6 @@ $eoraptor-spacer-border: #666 !default
       h1, h2, h3, h4, h5, h6
         font-weight: bold
         margin: 0.5em 0
-      
-      a.view-more
-        font-size: 0.8em
-        font-weight: bold
-        color: #999
-        padding-left: 0.25em
-        +inline-block
         
       .image_holder
         text-align: center
@@ -91,6 +92,15 @@ $eoraptor-spacer-border: #666 !default
           border: 0.2em solid #666
           background: #FFF
           +box-shadow(#000, 0, 0, 0.5em)
+    
+    article.summarized-project
+      padding: 0.5em 0
+      text-align: center
+      h2.project-title
+        font-size: 1.75em
+        color: #FFF
+      p
+        font-size: 1.2em
 
 #disqus_thread
   #dsq-content

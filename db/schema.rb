@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100503005130) do
+ActiveRecord::Schema.define(:version => 20100503011927) do
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20100503005130) do
     t.datetime "updated_at"
     t.string   "cached_slug"
     t.string   "format"
+    t.text     "short_description"
   end
 
   add_index "projects", ["cached_slug"], :name => "index_projects_on_cached_slug"
