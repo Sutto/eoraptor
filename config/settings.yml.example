@@ -1,0 +1,13 @@
+---
+default:
+  secret_token: "your-long-secret-token"
+  time_zone: "UTC"
+  author_name: Your Name
+  twitter:
+    user: "your-twitter-name"
+production:
+  disqus:
+    site: site-name
+development:
+  disqus:
+    site: site-name
