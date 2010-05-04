@@ -43,6 +43,10 @@ Eoraptor.withNS 'Util', (ns) ->
     text: "${ns.h text.slice(0, length)}$suffix"
   
   ns.timeAgoInWords: (date) ->
+    if $.browser.ie?
+      date: Date.parse date.replace /( \+)/," UTC$1"
+    else
+      date: Date.parse date
     time: Number new Date(date)
     now:  Number new Date()
     secondsAgo: (now - time) / 1000

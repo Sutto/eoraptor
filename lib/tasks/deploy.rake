@@ -96,8 +96,6 @@ namespace :deploy do
     puts "[LOCAL] Attempting to start passenger..."
     execute_local_command! "mkdir -p tmp"
     execute_local_command! "touch tmp/restart.txt"
-    sleep 10
-    puts "[LOCAL] Getting error pages..."
   end
   
   task :local_before do

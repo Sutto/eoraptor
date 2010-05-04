@@ -54,7 +54,8 @@ Eoraptor.withNS('Util', function(ns) {
     return text;
   };
   ns.timeAgoInWords = function timeAgoInWords(date) {
-    var daysAgo, hoursAgo, minutesAgo, monthsAgo, now, secondsAgo, time;
+    var _a, daysAgo, hoursAgo, minutesAgo, monthsAgo, now, secondsAgo, time;
+    (typeof (_a = $.browser.ie) !== "undefined" && _a !== null) ? (date = Date.parse(date.replace(/( \+)/, " UTC$1"))) : (date = Date.parse(date));
     time = Number(new Date(date));
     now = Number(new Date());
     secondsAgo = (now - time) / 1000;
