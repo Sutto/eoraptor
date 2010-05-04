@@ -16,4 +16,6 @@ en:
         invalid_format: "is an invalid content format"
         blank: "must be filled in to continue"
         invalid: "has errors that must be fixed before continuing"
-        
+  actionmailer:
+    contact_form:
+      subject: You have mail!
