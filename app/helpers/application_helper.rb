@@ -31,6 +31,7 @@ module ApplicationHelper
     if Settings.google_analytics.identifier?
       inner = javascript_include_tag("#{request.ssl? ? "https://ssl" : "http://www"}.google-analytics.com/ga.js")
       inner << javascript_tag(google_analytics_snippet_js(Settings.google_analytics.identifier))
+      inner
     end
   end
   
