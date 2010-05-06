@@ -19,4 +19,11 @@ class PostsController < ApplicationController
     @posts = Post.ordered.published.for_listing.all
   end
   
+  protected
+  
+  helper_method :summarized_feed?
+  def summarized_feed?
+    !params[:full]
+  end
+  
 end

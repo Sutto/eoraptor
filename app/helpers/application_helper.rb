@@ -51,4 +51,13 @@ module ApplicationHelper
     object.published_at.blank? ? "Not yet published" : l(object.published_at, :format => :long)
   end
   
+  def absolutize_links(html)
+    doc = Nokogiri::HTML(html)
+    doc.search('a').each do |link|
+      href = link[:href]
+      link[:href] = "http://#{request.host}#{href}" if href =~ /^\//
+    end
+    doc.at('*').to_html.html_safe
+  end
+  
 end

@@ -3,11 +3,19 @@ module PostsHelper
   def summary_with_full_link(post, options = {})
     html = first_paragraph_of post.summary_as_html
     if options[:rss]
-      link = link_to "Continue reading on the Blog&raquo;".html_safe, post_path(post), :class => 'view-more'
+      link = link_to "Continue reading on the Blog &raquo;".html_safe, post_url(post), :class => 'view-more'
     else
       link = link_to "Continue Reading &raquo;".html_safe, post_path(post), :class => 'view-more'
     end
     html.gsub(/(\.|\!|\?)?\s*<\/p>/) { "#{$1 || "."} #{link}</p>" }.html_safe
+  end
+  
+  def full_post_content_for_rss(post)
+    content = post.content_as_html
+    content = absolutize_links(content) 
+    link = link_to "View post / comment on Blog &raquo;".html_safe, post_url(post), :class => 'view-more'
+    content << content_tag(:p, link)
+    content
   end
   
   def pagination_links_for(collection)
