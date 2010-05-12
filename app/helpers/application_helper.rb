@@ -54,8 +54,8 @@ module ApplicationHelper
   def absolutize_links(html)
     doc = Nokogiri::HTML(html)
     doc.search('a').each do |link|
-      href = link[:href]
-      link[:href] = "http://#{request.host}#{href}" if href =~ /^\//
+      href = link['href'].to_s
+      link['href'] = "http://#{request.host}#{href}" if href =~ /^\//
     end
     doc.at('*').to_html.html_safe
   end
