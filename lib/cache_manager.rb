@@ -24,6 +24,7 @@ class CacheManager
       expire! post_path(post)
       expire! post_archives_path
       expire! post_rss_feed_path
+      expire! full_post_rss_feed_path
       expire! root_path
     end
     
@@ -33,7 +34,7 @@ class CacheManager
     end
     
     def expire_all
-      Dir[Rails.root.join("public/**/*.html")].each { |f| File.delete f }
+      Dir[Rails.root.join("public/**/*.{html,rss}")].each { |f| File.delete f }
     end
     
     protected
