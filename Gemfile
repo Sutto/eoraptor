@@ -8,6 +8,7 @@ git "git://github.com/Sutto/validation_reflection.git"
 git "git://github.com/justinfrench/formtastic.git", :ref => "rails3"
 git "git://github.com/railsjedi/jammit.git"
 
+gem "bundler", ">= 0.9.25"
 
 # Start gems
 gem 'rails', '3.0.0.beta3'
