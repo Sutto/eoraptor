@@ -10,7 +10,8 @@
     - if Settings.twitter.user?
       = meta_tag "twitter-user", Settings.twitter.user.to_s
     = yield :extra_head
-    = auto_discovery_link_tag :rss, post_rss_feed_url
+    = auto_discovery_link_tag :rss, post_rss_feed_url, :title => "Summarized RSS Feed"
+    = auto_discovery_link_tag :rss, full_post_rss_feed_url, :title => "Full RSS Feed"
   %body
     = flash_messages :alert, :notice
     %header= render :partial => 'shared/header'
