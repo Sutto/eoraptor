@@ -4,11 +4,13 @@ javascripts:
   base:
     - public/javascripts/vendor/jquery-1.4.2.js
     - public/javascripts/vendor/jquery.rails.js
+    - public/javascripts/vendor/jquery.timeago.js
     - public/javascripts/vendor/css_browser_selector.js
     - public/javascripts/vendor/shuriken/**/*.js
     - public/javascripts/eoraptor.js
     - public/javascripts/eoraptor/util.js
     - public/javascripts/eoraptor/twitter.js
+    - public/javascripts/eoraptor/timestamps.js
   html5_shiv:
     - public/javascripts/vendor/html5.js
   disqus:
