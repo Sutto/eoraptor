@@ -4,7 +4,6 @@ git "git://github.com/mislav/will_paginate.git", :ref => "rails3"
 
 # General WIP Fixes.
 git "git://github.com/Sutto/exception_notification.git"
-git "git://github.com/justinfrench/formtastic.git", :ref => "rails3"
 git "git://github.com/railsjedi/jammit.git"
 
 gem "bundler", ">= 0.9.25"
@@ -18,7 +17,7 @@ gem "forgery", ">= 0.3.4"
 
 gem 'unicorn'
 
-gem "formtastic", "= 0.9.8"
+gem "formtastic", ">= 1.0.0.beta"
 gem "validation_reflection"
 
 gem "compass", ">= 0.10.0.rc1"
