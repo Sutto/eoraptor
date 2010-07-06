@@ -48,7 +48,7 @@ gem 'sqlite3-ruby', :require => 'sqlite3', :group => [:development, :test]
 
 gem "nokogiri"
 
-gem "barista", :path => "/Users/sutto/Code/OSS/barista"
+gem "barista", ">= 0.4.0"
 gem "bhm-admin"
 
 gem "almost-happy", ">= 0.1.1"
