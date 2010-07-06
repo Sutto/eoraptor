@@ -4,14 +4,13 @@ git "git://github.com/mislav/will_paginate.git", :ref => "rails3"
 
 # General WIP Fixes.
 git "git://github.com/Sutto/exception_notification.git"
-git "git://github.com/Sutto/validation_reflection.git"
 git "git://github.com/justinfrench/formtastic.git", :ref => "rails3"
 git "git://github.com/railsjedi/jammit.git"
 
 gem "bundler", ">= 0.9.25"
 
 # Start gems
-gem 'rails', '3.0.0.beta3'
+gem 'rails', '3.0.0.beta4'
 gem "rails3-generators"
 
 gem "haml", ">= 3.0.0.beta.3"
