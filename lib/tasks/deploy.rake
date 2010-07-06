@@ -84,7 +84,7 @@ namespace :deploy do
   end
   
   task :remote_before do
-    execute_local_command! "rm -rf config/database.yml"
+    execute_local_command! "rm -rf config/database.yml public/javascripts/vendor/shuriken public/javascripts/eoraptor*"
     execute_local_command! "ln -s database.real.yml config/database.yml"
     bundle_exec!           "compass compile ."
     bundle_exec!           "rake barista:brew"
