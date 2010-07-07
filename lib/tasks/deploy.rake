@@ -3,7 +3,7 @@ require 'net/http'
 namespace :deploy do
   
   def env_for_remote_command
-    "cd #{deploy_config(:app)} && export RAILS_ENV=#{ENV['RAILS_ENV'] || "production"}"
+    "cd #{deploy_config(:app)} && export RAILS_ENV=#{ENV['RAILS_ENV'] || "production"} && export PATH=\"/usr/local/bin:$PATH\""
   end
   
   def current_db_config
