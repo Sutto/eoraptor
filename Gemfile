@@ -55,6 +55,8 @@ gem "almost-happy", ">= 0.1.1"
 
 gem "shuriken"
 
+gem "open4"
+
 group :test do
   gem "machinist"
   gem "shoulda", ">= 3.0.pre", :require => nil, :git => "git://github.com/adamhunter/shoulda.git", :ref => 'rails3'
