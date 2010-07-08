@@ -7,6 +7,17 @@ class Post < ActiveRecord::Base
   is_sluggable   :title
   
   scope :for_listing, select('title, cached_slug, published_at, id')
+
+  before_save :generate_preview_key
+
+  def self.generate_uuid
+    @uuid ||= UUID.new
+    @uuid.generate
+  end
+
+  def generate_preview_key
+    self.preview_key ||= self.class.generate_uuid
+  end
   
 end
 

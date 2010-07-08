@@ -6,6 +6,8 @@ default:
   twitter:
     user: "your-twitter-name"
 production:
+  failtale:
+    api_key: "something"
   disqus:
     site: site-name
 development:

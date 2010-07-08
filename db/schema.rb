@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100503011927) do
+ActiveRecord::Schema.define(:version => 20100708074929) do
 
   create_table "pages", :force => true do |t|
     t.string   "title"
@@ -38,6 +38,7 @@ ActiveRecord::Schema.define(:version => 20100503011927) do
     t.text     "rendered_content"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "preview_key"
   end
 
   add_index "posts", ["cached_slug", "published_at"], :name => "index_posts_on_cached_slug_and_published_at"

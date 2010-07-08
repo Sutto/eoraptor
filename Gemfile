@@ -3,7 +3,6 @@ source 'http://rubygems.org'
 git "git://github.com/mislav/will_paginate.git", :ref => "rails3"
 
 # General WIP Fixes.
-git "git://github.com/Sutto/exception_notification.git"
 git "git://github.com/railsjedi/jammit.git"
 
 gem "bundler", ">= 0.9.25"
@@ -36,7 +35,7 @@ gem "title_estuary"
 gem "mail_form"
 gem "jammit"
 
-gem "exception_notifier", :require => nil
+gem "rack-failtale", :require => nil
 gem "stringex"
 gem "pseudocephalopod", ">= 0.2.1"
 gem "sitemap_generator"
@@ -48,10 +47,10 @@ gem 'sqlite3-ruby', :require => 'sqlite3', :group => [:development, :test]
 
 gem "nokogiri"
 
-gem "barista", ">= 0.4.0"
+gem "barista", ">= 0.4.2"
 gem "bhm-admin"
 
-gem "almost-happy", ">= 0.1.1"
+gem "almost-happy", ">= 0.2.1"
 
 gem "shuriken"
 

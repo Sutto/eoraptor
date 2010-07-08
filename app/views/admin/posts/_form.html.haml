@@ -1,6 +1,6 @@
 = form.inputs :name => "General Post Details" do
   = form.input :title 
-  = form.input :published_at
+  = form.input :published, :as => :boolean
   
 = form.inputs :name => "Post Contents" do
   = form.input :format, :as => :select, :collection => AlmostHappy::Convertor.for_select, :include_blank => false
