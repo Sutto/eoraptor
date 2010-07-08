@@ -1,6 +1,7 @@
 %p.post-metadata
   Posted
-  %abbr.timestamp{:title => post_metadata.published_at.iso8601}
-    = post_metadata.published_at.to_date.to_s(:long)
+  - if post_metadata.published_at.present?
+    %abbr.timestamp{:title => post_metadata.published_at.iso8601}
+      = post_metadata.published_at.to_date.to_s(:long)
   by
   = Settings.author_name

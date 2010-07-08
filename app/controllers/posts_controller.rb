@@ -11,7 +11,8 @@ class PostsController < ApplicationController
   end
   
   def show
-    @post = Post.published.find_using_slug!(params[:id])
+    @post   = Post.find_using_preview_key(params[:id])
+    @post ||= Post.published.find_using_slug!(params[:id])
     add_title_variables! :post_title => @post.title
   end
   

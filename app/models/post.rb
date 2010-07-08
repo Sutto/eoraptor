@@ -8,6 +8,10 @@ class Post < ActiveRecord::Base
   
   scope :for_listing, select('title, cached_slug, published_at, id')
 
+  def self.find_using_preview_key(key)
+    where(:preview_key => key).first
+  end
+
   before_save :generate_preview_key
 
   def self.generate_uuid

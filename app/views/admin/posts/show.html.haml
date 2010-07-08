@@ -15,3 +15,6 @@
     
   = r.attribute :content do
     .content-preview= resource.content_as_html
+
+  = r.attribute :preview_url do
+    = link_to "Preview Post", post_url(resource.preview_key)
