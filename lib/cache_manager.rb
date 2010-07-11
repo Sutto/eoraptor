@@ -22,6 +22,7 @@ class CacheManager
     
     def expire_post(post)
       expire! post_path(post)
+      expire! post_path(post.preview_key)
       expire! post_archives_path
       expire! post_rss_feed_path
       expire! full_post_rss_feed_path
