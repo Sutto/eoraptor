@@ -1,5 +1,13 @@
 module PostsHelper
   
+  def paged_posts_path(page = nil)
+    if page.blank? || page.to_i < 2
+      root_path
+    else
+      post_listing_path(:page => page)
+    end
+  end
+
   def summary_with_full_link(post, options = {})
     html = first_paragraph_of post.summary_as_html
     if options[:rss]
@@ -58,7 +66,7 @@ module PostsHelper
     if page.nil?
       content_tag :span, text.html_safe, options
     else
-      link_to text.html_safe, {:page => page}, options
+      link_to text.html_safe, paged_posts_path(page), options
     end
   end
   

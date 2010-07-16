@@ -27,6 +27,7 @@ class CacheManager
       expire! post_rss_feed_path
       expire! full_post_rss_feed_path
       expire! root_path
+      Dir[Rails.root.join("public", "page-*.html")].each { |f| File.delete f }
     end
     
     def expire_project(project)

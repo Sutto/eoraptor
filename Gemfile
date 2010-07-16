@@ -50,7 +50,7 @@ gem "nokogiri"
 gem "barista", ">= 0.4.2"
 gem "bhm-admin"
 
-gem "almost-happy", ">= 0.2.1"
+gem "almost-happy", ">= 0.2.2"
 
 gem "shuriken"
 

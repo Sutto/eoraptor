@@ -6,7 +6,8 @@ Eoraptor::Application.routes.draw do |map|
     resources :projects
     resources :pages
   end
-  
+ 
+  get '/page-:page', :to => 'posts#index', :as => :post_listing
   root :to => 'posts#index'
   
   get 'posts.rss', :to => 'posts#index', :format => :rss, :as => :post_rss_feed
