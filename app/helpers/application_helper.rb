@@ -29,14 +29,22 @@ module ApplicationHelper
   
   def google_analytics
     if Settings.google_analytics.identifier?
-      inner = javascript_include_tag("#{request.ssl? ? "https://ssl" : "http://www"}.google-analytics.com/ga.js")
-      inner << javascript_tag(google_analytics_snippet_js(Settings.google_analytics.identifier))
-      inner
+      javascript_tag(google_analytics_snippet_js(Settings.google_analytics.identifier))
     end
   end
   
   def google_analytics_snippet_js(identifier)
-    "try { var pageTracker = _gat._getTracker(#{identifier.to_json}); pageTracker._trackPageview(); } catch(e) {}"
+    return <<-END_OF_JS
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', #{identifier.to_json}]]);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    END_OF_JS
   end
   
   def first_paragraph_of(text)
