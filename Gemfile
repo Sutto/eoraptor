@@ -2,9 +2,6 @@ source 'http://rubygems.org'
 
 git "git://github.com/mislav/will_paginate.git", :ref => "rails3"
 
-# General WIP Fixes.
-git "git://github.com/railsjedi/jammit.git"
-
 gem "bundler", ">= 0.9.25"
 
 # Start gems
