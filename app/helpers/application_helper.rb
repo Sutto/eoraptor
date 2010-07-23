@@ -36,7 +36,7 @@ module ApplicationHelper
   def google_analytics_snippet_js(identifier)
     return <<-END_OF_JS
       var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', #{identifier.to_json}]]);
+      _gaq.push(['_setAccount', #{identifier.to_json}]);
       _gaq.push(['_trackPageview']);
 
       (function() {
