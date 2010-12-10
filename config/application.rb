@@ -14,5 +14,6 @@ module Eoraptor
     config.active_record.observers = [:caching_observer]
     config.encoding                = "utf-8"
     config.filter_parameters      += [:password]
+    config.autoload_paths         += %W(#{config.root}/lib)
   end
 end

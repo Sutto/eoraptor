@@ -1,3 +1,8 @@
+/* DO NOT MODIFY. This file was compiled Sat, 04 Dec 2010 18:57:27 GMT from
+ * /Users/sutto/Code/OSS/eoraptor/app/coffeescripts/eoraptor/util.coffee
+ */
+
+var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; };
 Eoraptor.withNS('Util', function(ns) {
   ns.escapeHTML = function(s) {
     return s.replace(/&/g, '&amp;').replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/'/g, "&#39;").replace(/"/g, "&quot;");
@@ -32,33 +37,30 @@ Eoraptor.withNS('Util', function(ns) {
   ns.attachUpdatingTimeAgo = function(object, date) {
     var existing, update;
     existing = $(object).dataAttr("time-ago-interval");
-    if (typeof existing !== "undefined" && existing !== null) {
+    if (existing != null) {
       clearInterval(parseInt(existing, 10));
     }
-    update = (function(__this) {
-      var __func = function() {
-        return object.html(ns.timeAgoInWords(date));
-      };
-      return (function() {
-        return __func.apply(__this, arguments);
-      });
-    })(this);
+    update = __bind(function() {
+      return object.html(ns.timeAgoInWords(date));
+    }, this);
     update();
     return $(object).dataAttr("time-ago-interval", setInterval(update, 60000));
   };
   ns.truncate = function(text, length) {
     var suffix;
-    length = (typeof length !== "undefined" && length !== null) ? length : 100;
+    length != null ? length : length = 100;
     suffix = text.length > length ? "&hellip;" : "";
-    text = ("" + (ns.h(text.slice(0, length))) + suffix);
-    return text;
+    return text = "" + (ns.h(text.slice(0, length))) + suffix;
   };
-  ns.timeAgoInWords = function(date) {
-    var _a, now, time;
-    (typeof (_a = $.browser.ie) !== "undefined" && _a !== null) ? (date = Date.parse(date.replace(/( \+)/, " UTC$1"))) : (date = Date.parse(date));
+  return ns.timeAgoInWords = function(date) {
+    var now, time;
+    if ($.browser.ie != null) {
+      date = Date.parse(date.replace(/( \+)/, " UTC$1"));
+    } else {
+      date = Date.parse(date);
+    }
     time = Number(new Date(date));
     now = Number(new Date());
     return $.timeago.inWords(now - time);
   };
-  return ns.timeAgoInWords;
 });

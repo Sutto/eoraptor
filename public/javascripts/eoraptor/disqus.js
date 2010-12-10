@@ -1,32 +1,34 @@
+/* DO NOT MODIFY. This file was compiled Sat, 04 Dec 2010 18:58:10 GMT from
+ * /Users/sutto/Code/OSS/eoraptor/app/coffeescripts/eoraptor/disqus.coffee
+ */
+
 Eoraptor.withNS('Disqus', function(ns) {
-  ns.currentIdentifier = function currentIdentifier() {
+  ns.currentIdentifier = function() {
     return $.metaAttr("disqus-identifier");
   };
-  ns.currentSite = function currentSite() {
+  ns.currentSite = function() {
     return $.metaAttr("disqus-site");
   };
-  ns.isDebug = function isDebug() {
+  ns.isDebug = function() {
     return $.metaAttr("disqus-developer") === "true";
   };
-  ns.configureDisqus = function configureDisqus() {
+  ns.configureDisqus = function() {
     window.disqus_identifier = ns.currentIdentifier();
     if (ns.isDebug()) {
-      window.disqus_developer = 1;
-      return window.disqus_developer;
+      return window.disqus_developer = 1;
     }
   };
-  ns.addScripts = function addScripts() {
+  ns.addScripts = function() {
     var script;
     ns.configureDisqus();
     script = $("<script />", {
       type: "text/javascript",
       async: true
     });
-    script.attr("src", ("http://" + (ns.currentSite()) + ".disqus.com/embed.js"));
+    script.attr("src", "http://${ns.currentSite()}.disqus.com/embed.js");
     return script.appendTo($("head"));
   };
-  ns.setup = function setup() {
+  return ns.setup = function() {
     return ns.addScripts();
   };
-  return ns.setup;
 });

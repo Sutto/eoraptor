@@ -1,7 +1,7 @@
-Eoraptor::Application.routes.draw do |map|
+Eoraptor::Application.routes.draw do
   
   namespace :admin do
-    get       '', :as => :dashboard, :to => 'dashboard#index'
+    get       '/', :as => :dashboard, :to => 'dashboard#index'
     resources :posts
     resources :projects
     resources :pages
