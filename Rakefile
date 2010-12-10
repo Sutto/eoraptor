@@ -7,6 +7,6 @@ require 'rake'
 require 'rake/testtask'
 require 'rake/rdoctask'
 
-Rails::Application.load_tasks
+Eoraptor::Application.load_tasks
 
 load 'tasks/annotate_models.rake'

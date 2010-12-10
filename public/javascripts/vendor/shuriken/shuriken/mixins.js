@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Sat, 04 Dec 2010 18:59:41 GMT from
+/* DO NOT MODIFY. This file was compiled Fri, 10 Dec 2010 18:27:34 GMT from
  * /Users/sutto/.rvm/gems/ree-1.8.7-2010.02@eoraptor/gems/shuriken-0.2.1/coffeescripts/shuriken/mixins.coffee
  */
 

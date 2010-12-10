@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Sat, 04 Dec 2010 18:59:02 GMT from
+/* DO NOT MODIFY. This file was compiled Fri, 10 Dec 2010 18:27:33 GMT from
  * /Users/sutto/Code/OSS/eoraptor/app/coffeescripts/eoraptor/twitter.coffee
  */
 

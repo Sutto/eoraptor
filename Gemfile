@@ -4,6 +4,8 @@ gem 'bundler'
 
 gem 'json', :require => nil
 
+gem 'pg'
+
 # Start gems
 gem 'rails', '3.0.3'
 gem 'rails3-generators'
@@ -53,12 +55,4 @@ group :test do
   gem 'machinist'
   gem 'shoulda', '>= 3.0.pre', :require => nil, :git => 'git://github.com/adamhunter/shoulda.git', :ref => 'rails3'
   gem 'redgreen', :require => nil
-end
-
-group :production do
-  gem 'mysql', :require => nil
-end
-
-group :development, :test do
-  gem 'sqlite3-ruby', :require => nil
 end
