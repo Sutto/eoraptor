@@ -14,4 +14,8 @@ class ApplicationController < ActionController::Base
     authenticate_user!
   end
   
+  def expires_in(*args)
+    super unless flash[:alert].present? || flash[:notice].present?
+  end
+  
 end
