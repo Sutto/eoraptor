@@ -16,7 +16,7 @@ production:
     contact_email: "sutto+blog@sutto.net"
     from: "noreply@sutto.net"
     host: "sutto.net"
-    delivery_method: sendgrid
+    delivery_method: smtp
     sendgrid_settings:
       username: "<%= ENV['SENDGRID_USERNAME'] %>"
       password: "<%= ENV['SENDGRID_PASSWORD'] %>"
