@@ -2,7 +2,6 @@
 db/*.sqlite3
 log/*.log
 tmp/**/*
-config/settings.yml
 .bundle-cache
 doc/app
 .yardoc
@@ -10,5 +9,4 @@ doc/app
 tmp/restart.txt
 tmp/*.sql
 public/stylesheets/*
-config/users.yml
 .eoraptor-opts
