@@ -47,9 +47,11 @@ gem 'nokogiri'
 gem 'barista', '>= 0.7.0.pre2'
 gem 'bhm-admin'
 
-gem 'almost-happy', '~> 0.4', :path => '/Users/sutto/Code/OSS/almost-happy'
+gem 'almost-happy', '~> 0.4'
 
 gem 'shuriken'
+
+gem 'youthtree-settings', '~> 0.2'
 
 group :test do
   gem 'machinist'

@@ -3,10 +3,10 @@ en:
     title:
       posts:
         index: "Recently posted"
-        show:  "{{post_title}}"
+        show:  "%{post_title}"
       contacts:
         new: "Contact Me"
         create: "Contact Me"
       projects:
         index: "My Projects"
-        show: "Project: {{project_name}}"
+        show: "Project: %{project_name}"

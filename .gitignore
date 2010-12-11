@@ -11,3 +11,4 @@ tmp/restart.txt
 tmp/*.sql
 public/stylesheets/*
 config/users.yml
+.eoraptor-opts

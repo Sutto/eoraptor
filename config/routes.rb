@@ -1,6 +1,6 @@
 Eoraptor::Application.routes.draw do
   
-  devise_for :users
+  # devise_for :users
 
   namespace :admin do
     get       '/', :as => :dashboard, :to => 'dashboard#index'

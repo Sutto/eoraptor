@@ -47,6 +47,32 @@ module ApplicationHelper
     END_OF_JS
   end
   
+  def clicky_snippet_js(identifier)
+    return <<-END_OF_JS
+      var clicky = {log: function(){return;}, goal: function(){return;}};
+      var clicky_site_id = #{identifier};
+      (function() {
+        var s   = document.createElement('script');
+        s.type  = 'text/javascript';
+        s.async = true;
+        s.src   = (document.location.protocol + '//static.getclicky.com/js');
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(s);
+      })();
+    END_OF_JS
+  end
+  
+  def clicky_noscript_tag(identifier)
+    image_tag = tag(:img, :height => 1, :width => 1, :alt => 'Clicky Analytics', :src => "http://in.getclicky.com/#{identifier}n.gif")
+    content_tag(:noscript, image_tag)
+  end
+  
+  def clicky
+    if Settings.clicky.site_id?
+      site_id = Settings.clicky.site_id
+      javascript_tag(clicky_snippet_js(site_id)) + clicky_noscript_tag(site_id)
+    end
+  end
+  
   def first_paragraph_of(text)
     Nokogiri::HTML(text).at('p').try(:to_html).try(:html_safe) || text
   end
