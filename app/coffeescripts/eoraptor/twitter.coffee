@@ -13,7 +13,9 @@ Eoraptor.withNS 'Twitter', (ns) ->
 
   ns.processTweets = (tweets) ->
     tweet = tweets[0]
-    ns.showTweet tweet if tweet?
+    if tweet?
+      ns.setupAuthorDetails()
+      ns.showTweet tweet
       
   ns.showTweet = (tweet) ->
     formattedText = ns.Util.twitterize tweet.text
@@ -21,7 +23,6 @@ Eoraptor.withNS 'Twitter', (ns) ->
     container.find("span#tweet-text").html formattedText
     Eoraptor.Util.attachUpdatingTimeAgo container.find("span#tweet-when"), tweet.created_at
     container.show()
-    
 
   ns.currentUser = -> $.metaAttr "twitter-user"
 
@@ -31,6 +32,12 @@ Eoraptor.withNS 'Twitter', (ns) ->
   ns.load = ->
     user = ns.currentUser()
     $.getScript ns.urlFor(user) if user?
+    
+  ns.setupAuthorDetails = ->
+    parent = $ "#tweet-author"
+    user = ns.currentUser()
+    parent.find('.twitter-author-name').text("@#{user}").attr('href', "http://twitter.com/#{user}")
+    parent.show()
     
   ns.setup = ->
     ns.load()

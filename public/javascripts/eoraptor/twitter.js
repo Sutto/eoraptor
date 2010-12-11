@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 10 Dec 2010 18:27:33 GMT from
+/* DO NOT MODIFY. This file was compiled Sat, 11 Dec 2010 15:55:03 GMT from
  * /Users/sutto/Code/OSS/eoraptor/app/coffeescripts/eoraptor/twitter.coffee
  */
 
@@ -19,6 +19,7 @@ Eoraptor.withNS('Twitter', function(ns) {
     var tweet;
     tweet = tweets[0];
     if (tweet != null) {
+      ns.setupAuthorDetails();
       return ns.showTweet(tweet);
     }
   };
@@ -42,6 +43,13 @@ Eoraptor.withNS('Twitter', function(ns) {
     if (user != null) {
       return $.getScript(ns.urlFor(user));
     }
+  };
+  ns.setupAuthorDetails = function() {
+    var parent, user;
+    parent = $("#tweet-author");
+    user = ns.currentUser();
+    parent.find('.twitter-author-name').text("@" + user).attr('href', "http://twitter.com/" + user);
+    return parent.show();
   };
   return ns.setup = function() {
     ns.load();

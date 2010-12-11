@@ -778,6 +778,21 @@ footer p#copyright-statement {
 }
 
 /* line 129, ../../app/stylesheets/eoraptor/public/_content.sass */
+#tweet-author {
+  display: none;
+  font-size: 0.85em;
+  color: #dddddd;
+  text-align: center;
+  font-weight: bold;
+  padding: 0.25em 0 0.5em;
+  text-shadow: black 1px 1px 1px;
+}
+/* line 137, ../../app/stylesheets/eoraptor/public/_content.sass */
+#tweet-author a {
+  color: #d8f6ff;
+}
+
+/* line 140, ../../app/stylesheets/eoraptor/public/_content.sass */
 #tweet-container {
   display: none;
   font-size: 1em;
@@ -801,11 +816,11 @@ footer p#copyright-statement {
   background-image: -moz-linear-gradient(bottom, #202020 0%, #2f2f2f 100%);
   background-image: linear-gradient(bottom, #202020 0%, #2f2f2f 100%);
 }
-/* line 141, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 152, ../../app/stylesheets/eoraptor/public/_content.sass */
 #tweet-container span#tweet-text {
   color: white;
 }
-/* line 143, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 154, ../../app/stylesheets/eoraptor/public/_content.sass */
 #tweet-container span#tweet-text a {
   color: #a8bcd2;
 }
@@ -813,20 +828,20 @@ footer p#copyright-statement {
 #tweet-container span#tweet-text a:hover {
   color: #d85561;
 }
-/* line 145, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 156, ../../app/stylesheets/eoraptor/public/_content.sass */
 #tweet-container span#tweet-when {
   color: #ffdebb;
 }
-/* line 147, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 158, ../../app/stylesheets/eoraptor/public/_content.sass */
 #tweet-container span.tweet-misc {
   color: #999999;
 }
 
-/* line 152, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 163, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project h1 {
   margin-bottom: 0.3em;
 }
-/* line 154, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 165, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #project-short-description {
   text-align: center;
   font-size: 1em;
@@ -836,14 +851,14 @@ footer p#copyright-statement {
   margin: 0 0 1.5em;
   font-weight: bold;
 }
-/* line 163, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 174, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #github-info {
   text-align: center;
   font-size: 1em;
   border-bottom: 1px solid #666666;
   padding: 0.2em 0 0.35em;
 }
-/* line 168, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 179, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #github-info a {
   color: #c0e2ff;
 }
@@ -851,49 +866,49 @@ footer p#copyright-statement {
 #inner-content #project #github-info a:hover {
   color: #995d5d;
 }
-/* line 170, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 181, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project h2 {
   color: white;
   font-size: 1.3em;
   margin: 0 0 0.25em;
   border-bottom: 1px solid #666666;
 }
-/* line 177, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 188, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #project-description h1, #inner-content #project #project-description h2, #inner-content #project #project-description h3, #inner-content #project #project-description h4, #inner-content #project #project-description h5, #inner-content #project #project-description h6 {
   color: white;
   border-bottom: none;
 }
-/* line 180, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 191, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #project-description h1 {
   font-size: 1.5em;
 }
-/* line 182, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 193, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #project-description h2 {
   font-size: 1.4em;
 }
-/* line 184, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 195, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #project-description h3 {
   font-size: 1.3em;
 }
-/* line 186, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 197, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #project-description h4 {
   font-size: 1.2em;
 }
-/* line 188, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 199, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #project-description h5 {
   font-size: 1.1em;
 }
-/* line 190, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 201, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #project-description h6 {
   font-size: 1em;
 }
-/* line 193, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 204, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #view-project {
   text-align: center;
   font-size: 1.2em;
   padding: 0.25em 0 0.5em;
 }
-/* line 197, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 208, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #view-project a {
   color: #c0e2ff;
 }
@@ -901,7 +916,7 @@ footer p#copyright-statement {
 #inner-content #project #view-project a:hover {
   color: #995d5d;
 }
-/* line 202, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 213, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #github-commits ul#commit-listing {
   margin: 0;
   font-size: 0.9em;
@@ -909,12 +924,12 @@ footer p#copyright-statement {
   padding: 0;
   text-align: center;
 }
-/* line 208, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 219, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #github-commits ul#commit-listing li {
   margin: 1.5em 0;
   list-style: none;
 }
-/* line 211, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 222, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #github-commits ul#commit-listing li a {
   font-weight: bold;
   color: #bbd3ee;
@@ -923,11 +938,11 @@ footer p#copyright-statement {
 #inner-content #project #github-commits ul#commit-listing li a:hover {
   color: #d85561;
 }
-/* line 214, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 225, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #github-commits ul#commit-listing li span.gh-commit-misc {
   color: #eeeeee;
 }
-/* line 216, ../../app/stylesheets/eoraptor/public/_content.sass */
+/* line 227, ../../app/stylesheets/eoraptor/public/_content.sass */
 #inner-content #project #github-commits ul#commit-listing li span.gh-commit-commited-at {
   color: #ffdebb;
 }
