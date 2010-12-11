@@ -8,5 +8,4 @@ doc/app
 .sass-cache
 tmp/restart.txt
 tmp/*.sql
-public/stylesheets/*
 .eoraptor-opts
