@@ -1,6 +1,8 @@
 ---
 default:
-  secret_token: "your-long-secret-token"
+  secret_token: "<%= ENV['EORAPTOR_SECRET_TOKEN'] %>"
+  devise:
+    pepper: "<%= ENV['EORAPTOR_DEVISE_PEPPER'] %>"
   time_zone: "UTC"
   author_name: Your Name
   twitter:
