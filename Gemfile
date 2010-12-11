@@ -4,15 +4,15 @@ gem 'bundler'
 
 gem 'json', :require => nil
 
-gem 'pg'
-
 # Start gems
 gem 'rails', '3.0.3'
 gem 'rails3-generators'
 
+gem 'devise'
+gem 'pg'
+
 gem 'haml-rails'
-gem 'haml'
-gem 'sass'
+gem 'haml', '~> 3.0.0'
 gem 'forgery', '>= 0.3.4'
 
 gem 'unicorn'
@@ -20,7 +20,7 @@ gem 'unicorn'
 gem 'formtastic', '~> 1.2'
 gem 'validation_reflection'
 
-gem 'compass', '>= 0.10.0.rc1'
+gem 'compass', '0.10.6'
 gem 'compass-960-plugin'
 gem 'compass-colors'
 gem 'fancy-buttons'
@@ -47,7 +47,7 @@ gem 'nokogiri'
 gem 'barista', '>= 0.7.0.pre2'
 gem 'bhm-admin'
 
-gem 'almost-happy', '>= 0.2.3'
+gem 'almost-happy', '~> 0.4', :path => '/Users/sutto/Code/OSS/almost-happy'
 
 gem 'shuriken'
 

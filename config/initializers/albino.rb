@@ -1,0 +1,1 @@
+AlmostHappy::Convertor.use_web_api!

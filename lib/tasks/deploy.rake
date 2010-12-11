@@ -95,7 +95,6 @@ namespace :deploy do
   task :remote_after do
     puts "[LOCAL] Attempting to start passenger..."
     execute_local_command! "mkdir -p tmp"
-    bundle_exec!           "rails runner 'CacheManager.expire_all'"
     execute_local_command! "touch tmp/restart.txt"
   end
   

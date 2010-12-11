@@ -11,7 +11,6 @@ module Eoraptor
       g.template_engine :haml
       g.test_framework  :test_unit, :fixture_replacement => :machinist
     end
-    config.active_record.observers = [:caching_observer]
     config.encoding                = "utf-8"
     config.filter_parameters      += [:password]
     config.autoload_paths         += %W(#{config.root}/lib)
