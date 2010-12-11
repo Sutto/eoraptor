@@ -1,0 +1,26 @@
+---
+default:
+  secret_token: "<%= ENV['EORAPTOR_SECRET_TOKEN'] %>"
+  devise:
+    pepper: "<%= ENV['EORAPTOR_DEVISE_PEPPER'] %>"
+  clicky:
+    site_id: 243616
+  time_zone: "UTC"
+  author_name: Darcy Laycock
+  twitter:
+    user: "Sutto"
+production:
+  disqus:
+    site: ninjahideout
+  mailer:
+    contact_email: "sutto+blog@sutto.net"
+    from: "noreply@sutto.net"
+    host: "sutto.net"
+    delivery_method: sendgrid
+    sendgrid_settings:
+      username: "<%= ENV['SENDGRID_USERNAME'] %>"
+      password: "<%= ENV['SENDGRID_PASSWORD'] %>"
+      domain: "<%= ENV['SENDGRID_DOMAIN'] %>"
+development:
+  disqus:
+    site: eoraptordev
