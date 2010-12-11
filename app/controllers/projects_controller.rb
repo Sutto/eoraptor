@@ -8,7 +8,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.published.find_using_slug!(params[:id])
     add_title_variables! :project_name => @project.name
-    fresh_when :last_modified => @post.published_at.utc, :etag => @post, :public => true
+    fresh_when :last_modified => @project.published_at.utc, :etag => @project, :public => true
   end
   
 end

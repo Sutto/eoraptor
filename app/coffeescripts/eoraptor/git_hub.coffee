@@ -1,7 +1,7 @@
 Eoraptor.withNS 'GitHub', (ns) ->
 
   ns.showCommits = (results) ->
-    return unless "commits" in results
+    return unless results["commits"]?
     ns.commits   =   results.commits 
     ns.container = $ "#commit-listing"
     ns.container.empty()
@@ -29,7 +29,7 @@ Eoraptor.withNS 'GitHub', (ns) ->
     inner.append spanWithClass 'misc', ' about '
     
     commitedTime = ghParseDate commit.committed_date
-    time: spanWithClass 'commited-at', ''
+    time = spanWithClass 'commited-at', ''
     Eoraptor.Util.attachUpdatingTimeAgo time, commitedTime
     inner.append time
 

@@ -1,4 +1,4 @@
-/* DO NOT MODIFY. This file was compiled Fri, 10 Dec 2010 18:27:33 GMT from
+/* DO NOT MODIFY. This file was compiled Sat, 11 Dec 2010 14:31:29 GMT from
  * /Users/sutto/Code/OSS/eoraptor/app/coffeescripts/eoraptor/disqus.coffee
  */
 
@@ -25,7 +25,7 @@ Eoraptor.withNS('Disqus', function(ns) {
       type: "text/javascript",
       async: true
     });
-    script.attr("src", "http://${ns.currentSite()}.disqus.com/embed.js");
+    script.attr("src", "http://" + (ns.currentSite()) + ".disqus.com/embed.js");
     return script.appendTo($("head"));
   };
   return ns.setup = function() {

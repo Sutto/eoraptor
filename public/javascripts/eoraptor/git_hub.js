@@ -1,18 +1,12 @@
-/* DO NOT MODIFY. This file was compiled Fri, 10 Dec 2010 18:27:33 GMT from
+/* DO NOT MODIFY. This file was compiled Sat, 11 Dec 2010 14:41:02 GMT from
  * /Users/sutto/Code/OSS/eoraptor/app/coffeescripts/eoraptor/git_hub.coffee
  */
 
-var __indexOf = Array.prototype.indexOf || function(item) {
-  for (var i = 0, l = this.length; i < l; i++) {
-    if (this[i] === item) return i;
-  }
-  return -1;
-};
 Eoraptor.withNS('GitHub', function(ns) {
   var ghParseDate, spanWithClass;
   ns.showCommits = function(results) {
     var commit, _i, _len, _ref, _results;
-    if (__indexOf.call(results, "commits") < 0) {
+    if (results["commits"] == null) {
       return;
     }
     ns.commits = results.commits;
@@ -39,7 +33,7 @@ Eoraptor.withNS('GitHub', function(ns) {
     return date;
   };
   ns.showCommit = function(commit) {
-    var author, commitLink, commitedTime, inner;
+    var author, commitLink, commitedTime, inner, time;
     author = commit.author;
     inner = $("<li />", {
       'class': 'github-commit'
@@ -60,9 +54,7 @@ Eoraptor.withNS('GitHub', function(ns) {
     inner.append(commitLink);
     inner.append(spanWithClass('misc', ' about '));
     commitedTime = ghParseDate(commit.committed_date);
-    ({
-      time: spanWithClass('commited-at', '')
-    });
+    time = spanWithClass('commited-at', '');
     Eoraptor.Util.attachUpdatingTimeAgo(time, commitedTime);
     inner.append(time);
     inner.append(spanWithClass('misc', ' ago.'));
