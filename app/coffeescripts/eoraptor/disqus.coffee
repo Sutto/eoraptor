@@ -16,7 +16,7 @@ Eoraptor.withNS 'Disqus', (ns) ->
   ns.addScripts = ->
     ns.configureDisqus()
     script = $ "<script />", type: "text/javascript", async: true
-    script.attr "src", "http://${ns.currentSite()}.disqus.com/embed.js"
+    script.attr "src", "http://#{ns.currentSite()}.disqus.com/embed.js"
     script.appendTo $ "head"
     
   ns.setup = -> ns.addScripts()
