@@ -100,6 +100,7 @@ GEM
       haml (~> 3.0)
       railties (~> 3.0)
     has_scope (0.5.0)
+    hpricot (0.8.3)
     i18n (0.5.0)
     inherited_resources (1.1.2)
       has_scope (~> 0.5.0)
@@ -145,6 +146,9 @@ GEM
     rdiscount (1.6.5)
     redgreen (1.2.2)
     responders (0.6.2)
+    ruby_parser (2.0.5)
+      sexp_processor (~> 3.0)
+    sexp_processor (3.0.5)
     show_for (0.2.3)
     shuriken (0.2.1)
     sitemap_generator (1.3.5)
@@ -188,6 +192,7 @@ DEPENDENCIES
   formtastic (~> 1.2)
   haml (~> 3.0.0)
   haml-rails
+  hpricot
   inherited_resources (>= 1.1.2)
   jammit
   json
@@ -199,6 +204,7 @@ DEPENDENCIES
   rails3-generators
   redgreen
   responders (>= 0.6.0)
+  ruby_parser
   shoulda (>= 3.0.pre)!
   show_for (>= 0.2.1)
   shuriken

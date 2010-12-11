@@ -14,9 +14,9 @@
     = auto_discovery_link_tag :rss, post_rss_feed_url, :title => "Summarized RSS Feed"
     = auto_discovery_link_tag :rss, full_post_rss_feed_url, :title => "Full RSS Feed"
   %body
-    = flash_messages :alert, :notice
     %header= render :partial => 'shared/header'
     #container
+      = flash_messages :alert, :notice
       %section#content
         = render :partial => 'shared/tweet_container'
         #inner-content= yield

@@ -5,14 +5,16 @@
   +linear-gradient(color-stops(lighten($background-colour, 10), darken($background-colour, 10)), top)
 
 #flash-messages
-  margin: 0
+  margin: 0 auto
   p.flash
     margin: 0 0 1em
     padding: 0.5em
     font-weight: bold
     text-align: center
     border: 0.2em solid
+    +border-radius(0.5em)
     +flash-colours(#444444)
+    +box-shadow(#111, 0, 0, 0.25em)
     &.alert
       +flash-colours(#99242a)
     &.notice

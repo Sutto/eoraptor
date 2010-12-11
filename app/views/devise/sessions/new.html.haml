@@ -1,0 +1,11 @@
+%h1#page-title Sign in
+
+= semantic_form_for resource, :as => resource_name, :url => session_path(resource_name) do |form|
+  = form.inputs 'Account Details' do
+    = form.input :email, :as => :string
+    = form.input :password
+    = form.input :remember_me, :as => :boolean
+  
+  = form.buttons do
+    = form.commit_button 'Sign in'
+  

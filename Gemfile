@@ -53,6 +53,11 @@ gem 'shuriken'
 
 gem 'youthtree-settings', '~> 0.2'
 
+group :development do
+  gem 'hpricot', :require => nil
+  gem 'ruby_parser', :require => nil
+end
+
 group :test do
   gem 'machinist'
   gem 'shoulda', '>= 3.0.pre', :require => nil, :git => 'git://github.com/adamhunter/shoulda.git', :ref => 'rails3'

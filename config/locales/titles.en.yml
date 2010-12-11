@@ -10,3 +10,6 @@ en:
       projects:
         index: "My Projects"
         show: "Project: %{project_name}"
+      "devise/sessions":
+        new: "Sign in"
+        create: "Sign in"
